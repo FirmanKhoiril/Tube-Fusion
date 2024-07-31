@@ -2,7 +2,9 @@
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <section className="w-full bg-white h-full container mx-auto flex items-center">
+      Test
+    </section>
   )
 }
 

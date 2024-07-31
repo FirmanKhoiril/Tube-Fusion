@@ -107,5 +107,5 @@
 }
 
 body {
-  @apply w-full bg-dark-0 min-h-screen text-white relative;
+  @apply w-full bg-darkPrimary-0 min-h-screen text-white relative;
 }

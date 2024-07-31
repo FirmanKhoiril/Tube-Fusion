@@ -7,14 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: ["#4A23D5"],
+        primary: ["#965ed5"],
         secondary: ["#5139AA"],
       },
       backgroundColor: {
-        dark: ["#2C2B33"]
+        dark: ["#2C2B33"],
+        primary: ["#965ed5"],
+        secondary: ["#5139AA"],
+        darkPrimary: ["#2A2828"]
       }
     },
   },
-  plugins: [],
+  plugins: [
+    {
+      "plugins": ["prettier-plugin-tailwindcss"]
+    }
+  ],
 }
 
