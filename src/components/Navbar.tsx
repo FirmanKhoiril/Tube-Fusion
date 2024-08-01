@@ -1,6 +1,9 @@
 import { IoMenu  } from "react-icons/io5";
 import Logo from './Logo';
 import { useGlobalState } from '../context/useStore';
+import SearchBar from "./SearchBar";
+import Login from "./Login";
+import SearchMobile from "./SearchMobile";
 
 
 const Navbar = () => {
@@ -8,14 +11,18 @@ const Navbar = () => {
 
 
   return (
-    <nav className='py-2 container px-4 sm:py-3 mt-3  w-full mx-auto flex items-start  sticky shadow-md z-40 bg-dark-0/50 rounded-full justify-between'>
+    <nav className='py-2 container px-4 sm:py-3 mt-3  w-full mx-auto flex items-center  sticky shadow-md z-40 bg-dark-0/50 rounded-full justify-between'>
         <div className="flex items-center gap-3">     
             <button type='button'  onClick={() => setToogleSidebar(true)} className="p-2 hover:text-white">
-                <IoMenu  size={24}  className="hover:text-gray-400 transition duration-150 text-gray-400/70" />
+                <IoMenu  size={24}  className="icon" />
             </button> 
             <Logo />
         </div>
-        test
+        <div className="flex items-center gap-3 sm:gap-4">
+          <SearchMobile />
+          <SearchBar />
+          <Login />
+        </div>
     </nav>
   )
 }
