@@ -110,5 +110,5 @@ body {
   @apply w-full bg-darkPrimary-0 min-h-screen text-white relative;
 }
 .icon {
-  @apply hover:text-gray-400 transition duration-150 text-gray-400/70;
+  @apply hover:text-gray-400 transition duration-150 text-gray-200/70;
 }

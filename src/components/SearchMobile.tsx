@@ -29,7 +29,7 @@ const SearchMobile = () => {
 
   return (
     <>
-         <button type="button" onClick={( ) => setExpandSearchBarMobile(true)} className="sm:hidden inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full">
+         <button type="button" onClick={( ) => setExpandSearchBarMobile(true)} className="sm:hidden inline-block p-2 text-white bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full">
             <IoIosSearch size={24} className="icon" />
         </button>
     <AnimatePresence>
@@ -39,7 +39,7 @@ const SearchMobile = () => {
                     initial={{ scaleY: 0, scaleX: 0 }}
                     animate={{ scaleY: 1, scaleX: 1 }}
                     exit={{ scaleY: 0, scaleX: 0 }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.1 }}
                     className="fixed z-50 flex sm:hidden items-center justify-between left-2 top-0 transform -translate-x-1/2 mt-3 w-[96.6%]  rounded-full   bg-dark-0 origin-center"
                 >
                     

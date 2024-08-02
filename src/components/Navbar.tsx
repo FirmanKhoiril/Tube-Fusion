@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className='py-2 container px-4 sm:py-3 mt-3  w-full mx-auto flex items-center  sticky shadow-md z-40 bg-dark-0/50 rounded-full justify-between'>
-        <div className="flex items-center gap-3">     
+        <div className="flex items-center gap-3 ">     
             <button type='button'  onClick={() => setToogleSidebar(true)} className="p-2 hover:text-white">
                 <IoMenu  size={24}  className="icon" />
             </button> 
