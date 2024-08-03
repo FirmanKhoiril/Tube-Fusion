@@ -18,7 +18,7 @@ const Navbar = () => {
             </button> 
             <Logo />
         </div>
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2.5 max-w-[80px] sm:max-w-[372px] w-full sm:gap-3">
           <SearchMobile />
           <SearchBar />
           <Login />
