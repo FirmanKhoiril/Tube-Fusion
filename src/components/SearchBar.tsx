@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 const SearchBar = () => {
     const [showClearButton, setShowClearButton] = useState(false);
     const [inputSearch, setInputSearch] = useSearchParams({
-        q: ""
+        search: ""
     })
-    const query = inputSearch.get("q")  || ""
+    const query = inputSearch.get("search")  || ""
     const navigate = useNavigate()
     useEffect(() => {
       if(query.length !== 0) {
@@ -25,7 +25,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={onSubmitSearch} className=" relative w-full g px-2 hidden sm:inline-block "> 
         <input type="text" value={query} onChange={(e) => setInputSearch(prev => {
-            prev.set("q", e.target.value)
+            prev.set("search", e.target.value)
             return prev
         }, {
             replace: true
@@ -38,7 +38,7 @@ const SearchBar = () => {
         {query.length !== 0 && (
             <button type="button" className={`${showClearButton ? "opacity-100" : " opacity-0"} transition ease-in-out duration-200`}>
             <IoClose size={24} onClick={() => setInputSearch((prev) => {
-                prev.set("q", "")
+                prev.set("search", "")
                 return prev
             })} className="absolute top-[10px] right-5 icon" />
         </button>
