@@ -1,16 +1,23 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton, ClerkLoading, ClerkLoaded } from "@clerk/clerk-react";
 import { LuUser2 } from "react-icons/lu";
 
 const Login = () => {
   return (
     <section className="w-full">
       <header>
-      <SignedOut>
-          <SignInButton>
-            <button className="inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full" type="button">
-            <LuUser2  size={24} className="icon" />
+        <ClerkLoading>
+        <button className="inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full" type="button">
+            <LuUser2 size={24} className="icon" />
             </button>
+        </ClerkLoading>
+      <SignedOut>
+        <ClerkLoaded>
+          <SignInButton>
+              <button className="inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full" type="button">
+              <LuUser2  size={24} className="icon" />
+              </button>
           </SignInButton>
+        </ClerkLoaded>
       </SignedOut>
       <SignedIn>
         <UserButton />

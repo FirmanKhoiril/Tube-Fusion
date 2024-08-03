@@ -106,6 +106,13 @@
   font-style: italic;
 }
 
+.cinzel {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   @apply w-full bg-darkPrimary-0 min-h-screen text-white relative;
 }

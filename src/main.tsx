@@ -8,6 +8,7 @@ import {
 } from '@tanstack/react-query'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/clerk-react'
+import { dark } from '@clerk/themes';
 
 const queryClient = new QueryClient()
 
@@ -20,7 +21,13 @@ if (!PUBLISHABLE_KEY) {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+    <ClerkProvider 
+      publishableKey={PUBLISHABLE_KEY}
+      afterSignOutUrl="/"
+      appearance={{
+        baseTheme: [dark]
+      }}
+      >
         <Router>
           <App />
         </Router>

@@ -29,7 +29,7 @@ const SearchMobile = () => {
 
   return (
     <>
-         <button type="button" onClick={( ) => setExpandSearchBarMobile(true)} className="sm:hidden inline-block p-2 text-white bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full">
+         <button type="button" onClick={( ) => setExpandSearchBarMobile(true)} className="sm:hidden inline-block p-1 text-white bg-gray-100/0 shadow-sm hover:bg-gray-100/5 transition duration-150 rounded-full">
             <IoIosSearch size={24} className="icon" />
         </button>
     <AnimatePresence>
