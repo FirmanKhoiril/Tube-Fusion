@@ -1,18 +1,16 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const BASE_URL = 'https://pro-api.coinmarketcap.com'
+const BASE_URL = 'https://coinranking1.p.rapidapi.com'
 
-// export const getDataListCrypto = async () => {
-    
-//     try {
-//         const response = await axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest`, {
-//             headers: {
-//               'X-CMC_PRO_API_KEY': import.meta.env.VITE_APP_COINMARKETCAP_API_KEY
-//             },
-//           });
-          
-//           console.log(response.data)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+const options = {
+    headers: {
+      "X-RapidAPI-Key": import.meta.env.VITE_APP_CRYPTO_API_KEY,
+      "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+    },
+  };
+  
+  export const FetchCrypto = async (url: string): Promise<any> => {
+    const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+  
+    return data;
+  };

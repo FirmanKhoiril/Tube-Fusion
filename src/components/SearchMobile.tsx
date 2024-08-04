@@ -56,7 +56,7 @@ const SearchMobile = () => {
                             replace: true
                         })}
                         className="w-full bg-dark-0 pr-[52px] pl-3 placeholder:text-gray-400 focus:placeholder:text-gray-200 text-gray-200 outline-none text-[14px] py-2 rounded-full"
-                        placeholder="Search..."
+                        placeholder="Search Coin"
                     />
                     <button type="submit" className=" py-3.5 pl-2 pr-4 icon">
                         <IoIosSearch size={24} />

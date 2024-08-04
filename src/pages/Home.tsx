@@ -1,8 +1,11 @@
+// import useGetCryptoCoinLists from "../hooks/useGetCryptoCoinLists"
 
 
 const Home = () => {
+  // const {data} = useGetCryptoCoinLists()
+  // console.log(data)
   return (
-    <section className="w-full bg-white h-full container mx-auto flex items-center">
+    <section className="w-full h-full container mx-auto flex items-center">
       Test
     </section>
   )

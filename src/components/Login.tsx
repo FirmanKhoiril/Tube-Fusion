@@ -1,25 +1,15 @@
 import { SignedIn, SignedOut, SignInButton, UserButton, ClerkLoading, ClerkLoaded } from "@clerk/clerk-react";
 import { LuUser2 } from "react-icons/lu";
-import { Triangle } from "react-loader-spinner";
+import Loading from "./Loading";
 
 const Login = () => {
   // const {isSignedIn, user} = useUser()
-  // console.log(isSignedIn, user)
-
 
   return (
     <section className="w-full">
       <header className="">
         <ClerkLoading>
-         <div className={`  w-full`}>
-          <Triangle
-            visible={true}
-            height={35}
-            width={35}
-            color="#965ed5"
-            ariaLabel="triangle-loading"
-          />
-         </div>
+         <Loading width={35} height={35} />
         </ClerkLoading>
       <SignedOut>
         <ClerkLoaded>

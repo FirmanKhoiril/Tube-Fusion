@@ -1,23 +1,12 @@
-import { useEffect, useRef, RefObject } from "react";
 import { useGlobalState } from "../context/useStore";
 import { IoClose } from "react-icons/io5";
+import useHandlerClickOutsideEventSidebar from "../hooks/useHandlerClickOutsideEventSidebar";
+import { useUser } from "@clerk/clerk-react";
 
 const Sidebar = () => {
   const { toogleSidebar, setToogleSidebar } = useGlobalState();
-  const sidebarRef: RefObject<HTMLDivElement> = useRef(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
-        setToogleSidebar(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [setToogleSidebar]);
+  const {user} = useUser()
+  const {sidebarRef} = useHandlerClickOutsideEventSidebar()
 
   return (
     <aside
@@ -26,13 +15,18 @@ const Sidebar = () => {
         toogleSidebar ? 'translate-x-[0%]' : 'translate-x-[-100%]'
       } flex-col gap-4 h-screen z-50`}
     >
-      <button
-        type="button"
-        onClick={() => setToogleSidebar(false)}
-        className="p-2"
-      >
-        <IoClose size={24} className="icon" />
-      </button>
+      <div className="flex flex-row items-center gap-4">
+        <button
+          type="button"
+          onClick={() => setToogleSidebar(false)}
+          className="p-2"
+        >
+          <IoClose size={24} className="icon" />
+        </button>
+        <div className="">
+          <h1 className="tracking-wider  font-semibold text-lg">Hi, <span className="text-primary-0 font-bold cinzel">{user?.firstName || "Guest"} &nbsp;</span>{user?.lastName || ""}</h1>
+        </div>
+      </div>
     </aside>
   );
 };

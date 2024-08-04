@@ -1,7 +1,21 @@
+import { Triangle } from "react-loader-spinner"
 
-const Loading = () => {
+interface ISizeLoading {
+  width: number
+  height: number
+} 
+
+const Loading = ({width, height}: ISizeLoading) => {
   return (
-    <div>Loading</div>
+    <div className={` w-full`}>
+          <Triangle
+            visible={true}
+            height={width}
+            width={height}
+            color="#10b981"
+            ariaLabel="triangle-loading"
+          />
+         </div>
   )
 }
 
