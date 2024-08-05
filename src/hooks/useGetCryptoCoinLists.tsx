@@ -12,10 +12,11 @@ export default function useGetCryptoCoinLists() {
         isFetching,
       } = useQuery({
         queryKey: ['projects'],
-        queryFn: () => FetchCrypto(`coins?limit=${limitCoin}&orderBy=marketCap`)
+        queryFn: () => FetchCrypto(`coins?limit=${limitCoin}&orderBy=marketCap`),
+        staleTime: 60 * (60 * 30)
       })
 
       return {
-        isError, isLoading, isFetching, error, data, setLimitCoin
+        isError, isLoading, isFetching, error, data, setLimitCoin, limitCoin
       }
 }

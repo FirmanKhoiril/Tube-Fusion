@@ -9,6 +9,7 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { dark } from '@clerk/themes';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
 
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         baseTheme: [dark]
       }}
       >
+        <ReactQueryDevtools initialIsOpen={false} />
         <Router>
           <App />
         </Router>
