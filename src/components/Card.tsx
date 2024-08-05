@@ -11,7 +11,7 @@ const Card = ({coin}: ICardCrypto) => {
         <p>{coin.rank}.</p>
         <LazyLoadImage alt={coin.name} src={coin.iconUrl} width={28} height={28} />
         <div className="flex flex-col gap-1">
-          <h1 className="font-medium tracking-wide">{coin.name}({coin.symbol})</h1>
+          <h1 className="font-medium sm:tracking-wide sm:text-base text-sm">{coin.name}({coin.symbol})</h1>
           <p className="text-white/40 text-[12px]">Volume: &nbsp;{millify(coin["24hVolume"])}$</p>
         </div>
       </div>
