@@ -8,7 +8,7 @@ const Login = () => {
     <section className="w-full">
       <header className="">
         <ClerkLoading>
-          <button className="inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full" type="button">
+          <button className="inline-block p-2" type="button">
             <LuUser2  size={24} className="icon" />
           </button>
         </ClerkLoading>
