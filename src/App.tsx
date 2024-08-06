@@ -4,10 +4,11 @@ import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchResult from './pages/SearchResult'
-import TermOfConditions from './pages/TermOfConditions'
-// import withLazyLoading from './utils/withLoading'
+import withLazyLoading from './utils/withLoading'
 
 // const Home = withLazyLoading(() => import('./pages/Home'))
+const Contact = withLazyLoading(() => import('./pages/Contact'))
+const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/:search' element={<SearchResult />}/>
           <Route path='/term-of-condition' element={<TermOfConditions />}/>
-          <Route path='/contact-us' element={<TermOfConditions />}/>
+          <Route path='/contact-us' element={<Contact />}/>
         </Routes>
       </div>
    </main>
