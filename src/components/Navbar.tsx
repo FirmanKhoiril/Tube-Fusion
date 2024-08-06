@@ -10,7 +10,7 @@ const Navbar = () => {
     const {setToogleSidebar} = useGlobalState()
 
   return (
-    <nav className='py-4 container top-2 px-2.5 sm:px-4 sm:py-3 mt-3  w-full mx-auto flex items-center  sticky shadow-md z-40 bg-[#2b292e] rounded-full justify-between'>
+    <nav className='py-4 container top-2 px-3 sm:px-4 sm:py-3 mt-3  w-full mx-auto flex items-center  sticky shadow-md z-40 bg-[#2b292e] rounded-full justify-between'>
         <div className="flex items-center gap-2 ">     
             <button type='button'  onClick={() => setToogleSidebar(true)} className="p-2 hover:text-white">
                 <IoMenu  size={24}  className="icon" />

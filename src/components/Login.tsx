@@ -15,7 +15,7 @@ const Login = () => {
       <SignedOut>
         <ClerkLoaded>
           <SignInButton>
-              <button className="inline-block p-2 bg-gray-100/5 shadow-sm hover:bg-gray-100/10 transition duration-150 rounded-full" type="button">
+              <button className="inline-block p-1 shadow-sm hover:bg-gray-100/5 transition duration-150 rounded-full" type="button">
               <LuUser2  size={24} className="icon" />
               </button>
           </SignInButton>
