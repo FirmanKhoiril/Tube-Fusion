@@ -5,6 +5,9 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchResult from './pages/SearchResult'
 import TermOfConditions from './pages/TermOfConditions'
+// import withLazyLoading from './utils/withLoading'
+
+// const Home = withLazyLoading(() => import('./pages/Home'))
 
 function App() {
   return (

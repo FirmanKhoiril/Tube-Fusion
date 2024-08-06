@@ -17,7 +17,16 @@ export interface ICryptocurrency {
   tier: number;
   uuid: string;
   }
-  
+
+  export interface IDataStats {
+    total: number
+    totalCoins: number
+    totalMarkets: number
+    totalExchanges: number
+    totalMarketCap: number
+    total24hVolume: number
+}
+
 export interface ICardCrypto {
     coin: {
         ["24hVolume"]: number;

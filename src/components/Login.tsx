@@ -9,7 +9,7 @@ const Login = () => {
     <section className="w-full">
       <header className="">
         <ClerkLoading>
-         <Loading width={35} height={35} />
+         <Loading isLoading={false} width={35} height={35} />
         </ClerkLoading>
       <SignedOut>
         <ClerkLoaded>

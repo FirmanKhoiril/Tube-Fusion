@@ -3,11 +3,12 @@ import { Triangle } from "react-loader-spinner"
 interface ISizeLoading {
   width: number
   height: number
+  isLoading: boolean
 } 
 
-const Loading = ({width, height}: ISizeLoading) => {
+const Loading = ({width, height, isLoading}: ISizeLoading) => {
   return (
-    <div className={` w-full`}>
+    <div className={`${isLoading ? "w-full h-screen flex items-center justify-center": ""} `}>
           <Triangle
             visible={true}
             height={width}
