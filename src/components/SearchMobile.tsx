@@ -43,7 +43,7 @@ const SearchMobile = () => {
                     animate={{ scaleY: 1, scaleX: 1 }}
                     exit={{ scaleY: 0, scaleX: 0 }}
                     transition={{ duration: 0.1 }}
-                    className="fixed z-50 flex sm:hidden items-center justify-between left-2 top-0 transform -translate-x-1/2 mt-2 w-[96.6%]  rounded-full   bg-dark-0 origin-center"
+                    className="fixed z-50 flex sm:hidden max-h-[75.5px] h-full items-center justify-between left-2 top-0 transform -translate-x-1/2 mt-2 w-[96.6%]  rounded-full   bg-dark-0 origin-center"
                 >
                     
                     <button type="button" onClick={( ) => setExpandSearchBarMobile(false)} className=" py-3.5 pl-4 pr-2 icon">
