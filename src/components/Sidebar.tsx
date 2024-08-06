@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <aside
       ref={sidebarRef}
-      className={`absolute w-[90%] sm:w-[300px] drop-shadow-sm transition duration-300 mx-auto bg-dark-0 flex items-start pr-4 sm:px-3 sm:py-4 pl-6 py-5 ${
+      className={`fixed top-0 w-[90%] sm:w-[300px] drop-shadow-sm transition duration-300 mx-auto bg-dark-0 flex items-start pr-4 sm:px-3 sm:py-4 pl-6 py-5 ${
         toogleSidebar ? 'translate-x-[0%]' : 'translate-x-[-100%]'
       } flex-col gap-4 h-screen z-50`}
     >
