@@ -22,6 +22,7 @@ export default function useGetAllListCrypto() {
     queryKey: ['projects'],
     queryFn:  ({ pageParam = 0 }) => getDataCrypto(pageParam),
     getNextPageParam: (pages, lastPage) => {
+        console.log(pages)
         return lastPage?.length * 50;
 
     },
