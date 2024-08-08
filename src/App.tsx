@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchResult from './pages/SearchResult'
 import withLazyLoading from './utils/withLoading'
+import SearchFilter from './pages/SearchFilter'
 
 // const Home = withLazyLoading(() => import('./pages/Home'))
 const Contact = withLazyLoading(() => import('./pages/Contact'))
@@ -21,6 +22,7 @@ function App() {
           <Route path='/:search' element={<SearchResult />}/>
           <Route path='/term-of-condition' element={<TermOfConditions />}/>
           <Route path='/contact-us' element={<Contact />}/>
+          <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
         </Routes>
       </div>
    </main>
