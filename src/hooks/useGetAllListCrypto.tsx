@@ -6,6 +6,7 @@ export default function useGetAllListCrypto() {
 
   const getDataCrypto = async (pageParam: number | any): Promise<ICryptocurrency[]> => {
     const res = await FetchCrypto(`coins?limit=50&orderBy=marketCap&offset=` + pageParam);
+    console.log(res)
     return res;
   };
 
@@ -23,7 +24,7 @@ export default function useGetAllListCrypto() {
     queryFn:  ({ pageParam = 0 }) => getDataCrypto(pageParam),
     getNextPageParam: (pages, lastPage) => {
       console.log(pages)
-        if(lastPage?.length > 0) {
+        if(lastPage && lastPage?.length > 0) {
           return lastPage?.length * 50;
         } else {
           return undefined
