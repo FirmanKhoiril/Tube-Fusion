@@ -2,6 +2,9 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { FetchCrypto } from "../api/fetchCoinMarketCap";
 import { ICryptocurrency } from '../types/Interface';
 
+type TLastPage = {
+
+}
 export default function useGetAllListCrypto() {
 
   const getDataCrypto = async (pageParam: number | any): Promise<ICryptocurrency[]> => {
@@ -20,12 +23,12 @@ export default function useGetAllListCrypto() {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery<ICryptocurrency[], Error>({
-    queryKey: ['projects'],
+    queryKey: ['filtersPagination'],
     queryFn:  ({ pageParam = 0 }) => getDataCrypto(pageParam),
     getNextPageParam: (pages, lastPage) => {
       console.log(pages)
-        if(lastPage && lastPage?.length > 0) {
-          return lastPage?.length * 50;
+        if(lastPage && lastPage.length > 0) {
+          return lastPage.length * 50;
         } else {
           return undefined
         }
