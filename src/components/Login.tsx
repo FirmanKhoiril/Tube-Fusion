@@ -8,7 +8,7 @@ const Login = () => {
     <section className="w-full">
       <header className="">
         <ClerkLoading>
-          <button className="inline-block p-2" type="button">
+          <button className="inline-block p-1" type="button">
             <LuUser2  size={24} className="icon" />
           </button>
         </ClerkLoading>
