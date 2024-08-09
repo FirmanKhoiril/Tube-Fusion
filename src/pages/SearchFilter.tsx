@@ -6,6 +6,9 @@ import useGetAllListCrypto from "../hooks/useGetAllListCrypto"
 import { ICryptocurrency } from "../types/Interface"
 import { useInView } from "react-intersection-observer";
 import { Triangle } from "react-loader-spinner"
+import CustomScrollToTop from "../components/ScroolToTop"
+import Filter from "../components/Filter"
+
 
 
 const SearchFilter = () => {
@@ -17,7 +20,7 @@ const SearchFilter = () => {
       delay: 150,
       root: null,
     });
-
+    
     if(isError) return <Error />
 
     const handleNextPage = () => {
@@ -29,9 +32,11 @@ const SearchFilter = () => {
     }, [isFetchingNextPage, isLoading, fetchNextPage, inView]);
 
   return (
-    <div className="w-full h-full flex-col gap-4 container mx-auto flex">
+    <div className="w-full mx-auto container  pt-[88px] h-full flex-col gap-4 flex pr-4">
+          <Filter />
+      
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
-        {isSuccess && <div className="flex flex-col gap-4 pb-4">
+        {isSuccess && <div className="flex flex-col gap-4  pb-4 pt-2">
             {data?.pages.map((page: any) => page.data?.coins.map((coin: ICryptocurrency) => (
                  <Card key={coin.rank + coin.uuid} coin={coin} /> 
             )))}
@@ -49,6 +54,7 @@ const SearchFilter = () => {
                 </button>
               )}
       </div>
+     <CustomScrollToTop />
     </div>
   )
 }

@@ -5,6 +5,8 @@ import { ICryptocurrency } from "../types/Interface"
 import StatisticCryptoGlobal from "../components/StatisticCryptoGlobal"
 import Error from "../components/Error"
 import Loading from "../components/Loading"
+import CustomScrollToTop from "../components/ScroolToTop"
+
 
 const Home = () => {
   const {data, isError, isFetching, isLoading, limitCoin} = useGetCryptoCoinLists()
@@ -14,7 +16,7 @@ const Home = () => {
   if(isFetching && isLoading) return <Loading width={100} height={100} isLoading />
 
   return (
-    <section className="w-full h-full flex-col gap-4 container mx-auto flex">
+    <section className="w-full h-full pt-[90px] mx-auto flex-col gap-4 container flex">
       <div className="">
         <h1 className="text-lg sm:text-xl font-medium">Statistic Crypto Global</h1>
         <StatisticCryptoGlobal {...data?.data?.stats} />
@@ -30,6 +32,7 @@ const Home = () => {
           <Card key={coin.rank + coin.uuid} coin={coin} />
         ))}         
       </div>
+      <CustomScrollToTop />
     </section>
   )
 }

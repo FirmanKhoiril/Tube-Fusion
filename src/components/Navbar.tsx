@@ -4,16 +4,13 @@ import { useGlobalState } from '../context/useStore';
 import SearchBar from "./SearchBar";
 import Login from "./Login";
 import SearchMobile from "./SearchMobile";
-import Headroom from 'react-headroom'
 
 const Navbar = () => {
-
     const {setToogleSidebar} = useGlobalState()
-
     
   return (
-    <Headroom>
-      <nav className={`py-4 container top-2 px-3 sm:px-4 sm:py-3 mt-1  w-full mx-auto  items-center  sticky shadow-md z-40 bg-[#2b292e] flex  rounded-full justify-between`}>
+
+      <nav className={`py-4  top-0 px-3 sm:px-2 sm:py-3  w-full  items-center  fixed shadow-md z-40 bg-[#2b292e] left-0 flex  justify-between`}>
         <div className="flex items-center gap-2 ">     
             <button type='button'  onClick={() => setToogleSidebar(true)} className="p-2 hover:text-white">
                 <IoMenu  size={24}  className="icon" />
@@ -26,7 +23,7 @@ const Navbar = () => {
           <Login />
         </div>
       </nav>
-    </Headroom> 
+
   )
 }
 

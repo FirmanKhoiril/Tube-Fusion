@@ -1,0 +1,1 @@
+export const categories = ["all", "defi", "stablecoin", "nft", "dex", "exchange", "staking", "dao", "meme", "privacy"];

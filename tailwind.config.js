@@ -20,7 +20,7 @@ export default {
   },
   plugins: [
     {
-      "plugins": ["prettier-plugin-tailwindcss"]
+      "plugins": ["prettier-plugin-tailwindcss",  'tailwind-scrollbar']
     }
   ],
 }
