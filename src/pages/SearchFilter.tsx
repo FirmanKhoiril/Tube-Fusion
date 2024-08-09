@@ -33,10 +33,10 @@ const SearchFilter = () => {
 
   return (
     <div className="w-full mx-auto container  pt-[88px] h-full flex-col gap-4 flex">
-          <Filter />
       
+        <Filter />
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
-        {isSuccess && <div className="flex flex-col gap-4  pb-4 pt-2">
+        {isSuccess && <div className="flex flex-col gap-4  pb-4 pt-2 pr-4 sm:pr-0">
             {data?.pages.map((page: any) => page.data?.coins.map((coin: ICryptocurrency) => (
                  <Card key={coin.rank + coin.uuid} coin={coin} /> 
             )))}

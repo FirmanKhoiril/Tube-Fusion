@@ -16,7 +16,7 @@ const Filter = () => {
             {categories.map((category, index) => (
                 <button
                     key={index}
-                    className="flex items-center bg-black/20 px-3 py-2 rounded-md gap-1"
+                    className="flex items-center capitalize bg-black/20 px-3 py-2 rounded-md gap-1"
                     type="button"
                 >
                   <BiGridSmall size={20} /> {category}
