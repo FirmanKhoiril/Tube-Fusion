@@ -32,7 +32,7 @@ const SearchFilter = () => {
     }, [isFetchingNextPage, isLoading, fetchNextPage, inView]);
 
   return (
-    <div className="w-full mx-auto container  pt-[88px] h-full flex-col gap-4 flex pr-4">
+    <div className="w-full mx-auto container  pt-[88px] h-full flex-col gap-4 flex">
           <Filter />
       
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
