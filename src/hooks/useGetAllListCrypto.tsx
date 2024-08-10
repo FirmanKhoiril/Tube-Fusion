@@ -3,13 +3,13 @@ import { FetchCrypto } from "../api/fetchCoinMarketCap";
 import { ICryptocurrency } from '../types/Interface';
 
 
-export default function useGetAllListCrypto() {
-
+export default function useGetAllListCrypto(tag: string) {
   const getDataCrypto = async (pageParam: number | any): Promise<ICryptocurrency[]> => {
-    const res = await FetchCrypto(`coins?limit=50&orderBy=marketCap&offset=` + pageParam);
+    const res = await FetchCrypto(`coins?limit=50&${tag !== "" && tag !== "all" ? `tags[]=${tag}&` : ""}orderBy=marketCap&offset=` + pageParam);
     return res;
   };
 
+  //&tags[]=${tag === "all" ? "" : tag}
   const {
     data,
     error,
@@ -20,7 +20,7 @@ export default function useGetAllListCrypto() {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery<ICryptocurrency[], Error>({
-    queryKey: ['filtersPagination'],
+    queryKey: ['filtersPagination', tag],
     queryFn:  ({ pageParam = 0 }) => getDataCrypto(pageParam),
     getNextPageParam: (pages, lastPage) => {
       console.log(pages)

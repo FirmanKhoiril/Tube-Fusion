@@ -1,9 +1,10 @@
 import { PiSlidersHorizontalLight } from "react-icons/pi";
-import { BiGridSmall } from "react-icons/bi";
 import { categories } from "../context/dummyData";
+import { TFilterFunction } from "../types/Interface";
 
 
-const Filter = () => {
+
+const Filter = ({tag, setFilterTag, filterTag}: TFilterFunction) => {
 
   return (
     <div className="w-full  flex justify-between gap-2">
@@ -16,10 +17,15 @@ const Filter = () => {
             {categories.map((category, index) => (
                 <button
                     key={index}
-                    className="flex items-center capitalize bg-black/20 px-3 py-2 rounded-md gap-1"
+                    onClick={() => {
+                      const newParams = new URLSearchParams(filterTag);
+                      newParams.set("tags", category.name);
+                      setFilterTag(newParams);
+                    }}
+                    className={`${tag === category.name ? "text-primary-0 hover:text-primary-0/80" : "text-white"} flex items-center capitalize bg-black/20 transition duration-200 ease-in-out px-4 tracking-wide py-2 rounded-md gap-2`}
                     type="button"
                 >
-                  <BiGridSmall size={20} /> {category}
+                 {category.icon} {category.name}
                 </button>
                 ))}
         </div>

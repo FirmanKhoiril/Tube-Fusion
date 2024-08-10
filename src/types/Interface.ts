@@ -17,6 +17,11 @@ export interface ICryptocurrency {
   tier: number;
   uuid: string;
   }
+  export type TFilterFunction = {
+    tag: string | "",
+    setFilterTag: (params: URLSearchParams) => void,
+    filterTag: URLSearchParams
+  }
 
   export interface IDataStats {
     total: number
