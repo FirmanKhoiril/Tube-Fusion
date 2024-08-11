@@ -3,13 +3,17 @@ import { FetchCrypto } from "../api/fetchCoinMarketCap";
 import { ICryptocurrency } from '../types/Interface';
 
 
-export default function useGetAllListCrypto(tag: string) {
+type TParams = {
+  tag: string,
+  timePeriod: string | null
+}
+
+export default function useGetAllListCrypto({tag, timePeriod}: TParams) {
   const getDataCrypto = async (pageParam: number | any): Promise<ICryptocurrency[]> => {
-    const res = await FetchCrypto(`coins?limit=50&${tag !== "" && tag !== "all" ? `tags[]=${tag}&` : ""}orderBy=marketCap&offset=` + pageParam);
+    const res = await FetchCrypto(`coins?limit=50&${tag !== "" && tag !== "all" ? `tags[]=${tag}&` : ""}orderBy=marketCap&timePeriod=${timePeriod}&offset=` + pageParam);
     return res;
   };
 
-  //&tags[]=${tag === "all" ? "" : tag}
   const {
     data,
     error,
@@ -20,7 +24,7 @@ export default function useGetAllListCrypto(tag: string) {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery<ICryptocurrency[], Error>({
-    queryKey: ['filtersPagination', tag],
+    queryKey: ['filtersPagination', tag, timePeriod],
     queryFn:  ({ pageParam = 0 }) => getDataCrypto(pageParam),
     getNextPageParam: (pages, lastPage) => {
       console.log(pages)
@@ -28,7 +32,8 @@ export default function useGetAllListCrypto(tag: string) {
     },
     staleTime: 60 * 60 * 30,
     refetchInterval: 60 * 60 * 30,
-    initialPageParam: 0  
+    initialPageParam: 0,
+    refetchOnWindowFocus: false,
   });
 
   return {

@@ -120,6 +120,7 @@ body {
   @apply hover:text-gray-400 transition duration-150 text-gray-200/70;
 }
 
+
 *::-webkit-scrollbar {
   width: 0px; /* width of the entire scrollbar */
   height: 0px;

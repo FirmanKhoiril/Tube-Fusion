@@ -22,7 +22,7 @@ const Home = () => {
         <StatisticCryptoGlobal {...data?.data?.stats} />
       </div>
       <div className="w-full flex items-center justify-between">
-        <h1 className="text-lg sm:text-xl font-medium">Top {limitCoin} Market Crypto</h1>
+        <h1 className="text-lg sm:text-xl font-medium">{limitCoin} Market Crypto</h1>
         <Link to={"/cryptocurrency/filter"} className="text-sm transition duration-150 text-gray-500 hover:text-gray-400">
           ...Show More
         </Link>

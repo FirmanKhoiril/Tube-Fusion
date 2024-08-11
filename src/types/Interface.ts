@@ -21,6 +21,7 @@ export interface ICryptocurrency {
     tag: string | "",
     setFilterTag: (params: URLSearchParams) => void,
     filterTag: URLSearchParams
+    timePeriodValue: string | "" | null
   }
 
   export interface IDataStats {

@@ -6,8 +6,8 @@ import Home from './pages/Home'
 import SearchResult from './pages/SearchResult'
 import withLazyLoading from './utils/withLoading'
 import SearchFilter from './pages/SearchFilter'
+import CryptoDetail from './pages/CryptoDetail'
 
-// const Home = withLazyLoading(() => import('./pages/Home'))
 const Contact = withLazyLoading(() => import('./pages/Contact'))
 const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
 
@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/:search' element={<SearchResult />}/>
+          <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
           <Route path='/term-of-condition' element={<TermOfConditions />}/>
           <Route path='/contact-us' element={<Contact />}/>
           <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
