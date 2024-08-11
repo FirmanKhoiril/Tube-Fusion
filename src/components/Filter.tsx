@@ -1,60 +1,53 @@
 import { PiSlidersHorizontalLight } from "react-icons/pi";
-import { categories } from "../context/dummyData";
-import { TFilterFunction } from "../types/Interface";
-import { FaCaretDown } from "react-icons/fa";
+import { categories, timePeroidOptions } from "../context/dummyData";
+import { TbClockRecord } from "react-icons/tb";
+import FilterCard from "./FilterCard";
+import useGetFilterTag from "../hooks/useGetFilterTag";
 
-const Filter = ({tag, setFilterTag, filterTag, timePeriodValue}: TFilterFunction) => {
-
-  const timePeroidOptions = [
-    '3h', '24h', '7d','30d', '3m', '1y', "3y", "5y"
-  ];
-         
-
+const Filter = () => {
+  const {filterTag, setFilterTag, timePeriodValue} = useGetFilterTag()
   return (
-    <div className="w-full  flex justify-between gap-2">
+    <div className="w-full flex flex-col justify-between gap-3">
+      
+      <div className="flex items-center gap-3 pr-2 w-full overflow-x-auto">
 
-    <div className="flex items-center  gap-2 w-full">
-          
-        <div className="flex items-center justify-between gap-2 flex-row overflow-x-auto w-full">
-            <div className="flex items-center gap-2 pr-6 md:pr-4 lg:pr-0">
-              <button className="py-2 px-2.5 hover:bg-primary-0/60 transition duration-200 ease-in-out shadow-sm hover:shadow-lg bg-primary-0/80 text-sm rounded-md flex items-center gap-1" type="button">   
-                <PiSlidersHorizontalLight size={18} /> Filters
-              </button> 
-              {categories.map((category, index) => (
-                <button
-                    key={index}
-                    onClick={() => {
-                      const newParams = new URLSearchParams(filterTag);
-                      newParams.set("tags", category.name);
-                      setFilterTag(newParams);
-                    }}
-                    className={`${tag === category.name ? "text-primary-0 hover:text-primary-0/80" : "text-white"} flex items-center capitalize bg-black/20 transition duration-200 ease-in-out px-4 tracking-wide py-2 rounded-md gap-2`}
-                    type="button"
-                >
-                 {category.icon} {category.name}
-                </button>
-                ))}
-            </div>
-            <div className="relative max-w-[67px] w-full">
-                <button className={`py-2 px-2.5  justify-between text-black hover:bg-secondary-0 transition duration-200 ease-in-out shadow-sm hover:shadow-lg bg-secondary-0 text-sm rounded-md flex items-center font-medium w-full max-w-[67px]  gap-1`}>
-                  {timePeriodValue} <FaCaretDown size={18} />
-                </button>
-                <select className="opacity-0 cursor-pointer appearance-none top-0 absolute max-w-[67px] w-full px-2 bg-secondary-0  text-black" onChange={(e) => {
-                  const newParams = new URLSearchParams(filterTag);
-                  newParams.set("timePeriod", e.currentTarget.value);
-                  setFilterTag(newParams);
-                }}>
-                  {timePeroidOptions.map((time) => (
-                    <option className="font-medium " value={time}>{time}</option>
-                  ))}
-                </select>
-            </div>
+        <button
+          className="flex items-center gap-1 bg-primary-0/80 hover:bg-primary-0/60 text-white text-sm font-medium py-2 px-3 rounded-md shadow-sm hover:shadow-lg transition duration-200 ease-in-out"
+          type="button"
+        >
+          <PiSlidersHorizontalLight size={18} /> Filters
+        </button>
+        <div className="relative">
+        <select
+          className=" absolute top-0  opacity-0 h-full w-full text-black  bg-secondary-0  text-center  appearance-none cursor-pointer  focus:ring-2 focus:ring-[#10b981] focus:outline-none"
+          onChange={(e) => {
+            const newValue = e.currentTarget.value;
+            const newParams = new URLSearchParams(filterTag);
+            newParams.set("timePeriod", newValue);
+            setFilterTag(newParams);
+          }}
+        >
+          {timePeroidOptions.map((time, index) => (
+            <option key={index} className="font-medium text-center py-2" value={time}>
+               {time}
+            </option>
+          ))}
+        </select>
+        <button className="py-2 px-3 rounded-md shadow-sm hover:shadow-lg transition duration-200 ease-in-out bg-secondary-0 text-sm font-medium text-black flex items-center gap-1">
+          <TbClockRecord size={18}/>
+          {timePeriodValue}
+        </button>
+       
         </div>
-         
-        </div>
+
+      </div>
+      <div className="flex items-center flex-wrap gap-4">
+        {categories.map((category) => (
+          <FilterCard {...category} key={category.name} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Filter
-
+export default Filter;

@@ -8,18 +8,10 @@ import { useInView } from "react-intersection-observer";
 import { Triangle } from "react-loader-spinner"
 import CustomScrollToTop from "../components/ScroolToTop"
 import Filter from "../components/Filter"
-import { useSearchParams } from "react-router-dom"
-
-
+import useGetFilterTag from "../hooks/useGetFilterTag"
 
 const SearchFilter = () => {
-  const [filterTag, setFilterTag] = useSearchParams({
-    tags: "all",
-    timePeriod: '24h'
-})
-
-const tag = filterTag.get("tags") || ""
-const timePeriodValue = filterTag.get("timePeriod")
+  const {tag, timePeriodValue} = useGetFilterTag()
 
     const {data, isError, isFetching, isLoading, isFetchingNextPage, isSuccess, fetchNextPage, hasNextPage } = useGetAllListCrypto({
       tag, timePeriod: timePeriodValue
@@ -45,7 +37,7 @@ const timePeriodValue = filterTag.get("timePeriod")
   return (
     <div className="w-full pt-[88px] container mx-auto h-full flex-col gap-4 flex">
       
-        <Filter timePeriodValue={timePeriodValue} tag={tag} filterTag={filterTag} setFilterTag={setFilterTag} />
+        <Filter />
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
         {isSuccess && <div className="flex flex-col gap-4">
             {data?.pages.map((page: any) => page.data?.coins.map((coin: ICryptocurrency) => (
