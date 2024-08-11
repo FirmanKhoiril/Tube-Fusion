@@ -1,5 +1,6 @@
-import { BsFire, BsFillShieldLockFill , BsFillPiggyBankFill , BsFillHouseDoorFill } from "react-icons/bs";
-import { FaCoins, FaExchangeAlt, FaGavel, FaLock, FaLaugh } from "react-icons/fa";
+import { BsFire } from "react-icons/bs";
+// , BsFillShieldLockFill , BsFillPiggyBankFill , BsFillHouseDoorFill
+// import { FaCoins, FaExchangeAlt, FaGavel, FaLock, FaLaugh } from "react-icons/fa";
 import {doge, bitcoin_btc, bnb, eth, usdc, usdt, solana, ada, xrp} from '../assets/image/all'
 
 export const categories = [
