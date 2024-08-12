@@ -30,6 +30,7 @@ const SearchMobile = () => {
   const handleSubmitSearching = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/${query}`);
+    setExpandSearchBarMobile(false)
   };
 
   return (

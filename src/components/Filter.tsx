@@ -9,7 +9,7 @@ const Filter = () => {
   return (
     <div className="w-full flex flex-col justify-between gap-3">
       
-      <div className="flex items-center gap-3 pr-2 w-full overflow-x-auto">
+      <div className="flex items-center justify-between gap-3 pr-2 w-full">
 
         <button
           className="flex items-center gap-1 bg-primary-0/80 hover:bg-primary-0/60 text-white text-sm font-medium py-2 px-3 rounded-md shadow-sm hover:shadow-lg transition duration-200 ease-in-out"
@@ -41,7 +41,7 @@ const Filter = () => {
         </div>
 
       </div>
-      <div className="flex items-center flex-wrap gap-4">
+      <div className="flex w-full pb-2 flex-row overflow-x-auto items-center gap-4">
         {categories.map((category) => (
           <FilterCard {...category} key={category.name} />
         ))}
