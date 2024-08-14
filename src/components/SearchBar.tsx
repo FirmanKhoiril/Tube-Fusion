@@ -20,7 +20,7 @@ const SearchBar = () => {
     }, [query])
     const onSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      navigate(`/${query}`)
+      navigate(`/search/${query}`)
     }
   return (
     <form onSubmit={onSubmitSearch} className=" relative w-full g px-2 hidden sm:inline-block "> 

@@ -1,16 +1,7 @@
 import useGetFilterTag from "../hooks/useGetFilterTag"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { TFilterCardData } from "../types/Interface";
 
-
-type TImage = {
-  image: any
-}
-type TFilterCardData = {
-  name: string
-  images: TImage[]
-  icon: JSX.Element;
-  description: string
-}
 const FilterCard = ({name, icon, images, description}: TFilterCardData) => {
   const {setFilterTag, filterTag, tag } = useGetFilterTag()
   return (
@@ -18,7 +9,7 @@ const FilterCard = ({name, icon, images, description}: TFilterCardData) => {
       const newParams = new URLSearchParams(filterTag);
       newParams.set("tags", name);
       setFilterTag(newParams);
-    }}  className={`flex flex-col cursor-pointer ${tag === name ? "bg-[#3b3a44] text-primary-0 select-auto" : "bg-dark-0 hover:bg-[#3b3a44]"} items-start px-3 py-3.5 max-h-[176px] min-h-[156px] w-full min-w-52 max-w-[223px] h-full overflow-hidden rounded-md drop-shadow gap-3 transition duration-200 hover:drop-shadow-lg justify-between`}>
+    }}  className={`flex flex-col cursor-pointer border ${tag === name ? "bg-[#3b3a44] border-[rgb(16_,185,_129,_0.3)] text-primary-0 select-auto" : "bg-dark-0 hover:bg-[#3b3a44] border-transparent"} items-start px-3 py-3.5 max-h-[176px] min-h-[156px] w-full min-w-52 max-w-[223px] h-full overflow-hidden rounded-md drop-shadow gap-3 transition duration-200 hover:drop-shadow-lg justify-between`}>
         <div className="flex max-h-[100px] h-full truncate w-full gap-2  items-center justify-between flex-col">
           <div className="flex items-center border-b pb-2 border-white/10 w-full gap-1.5">
             {icon}

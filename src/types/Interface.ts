@@ -33,6 +33,16 @@ export interface ICryptocurrency {
     total24hVolume: number
 }
 
+type TImage = {
+  image: any
+}
+export type TFilterCardData = {
+  name: string
+  images: TImage[]
+  icon: JSX.Element;
+  description: string
+}
+
 export interface ICardCrypto {
     coin: {
         ["24hVolume"]: number;

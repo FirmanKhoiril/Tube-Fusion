@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom'
 import useGetSearchResult from '../hooks/useGetSearchResult'
 
 const SearchResult = () => {
-    const {search} = useParams()
+    const {result} = useParams()
     const {data} = useGetSearchResult({
-      search: search
+      search: result
     })
     console.log(data)
   return (
-    <div>{search}</div>
+    <div>{result}</div>
   )
 }
 

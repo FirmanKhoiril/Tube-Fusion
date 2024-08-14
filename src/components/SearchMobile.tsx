@@ -4,10 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { IoClose, IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import useHandleEventSearchMobile from "../hooks/useHandleEventSearchMobile";
+import { useGlobalState } from "../context/useStore";
+import SearchSuggestion from "./SearchSuggestion";
+import { useDebounce } from 'use-debounce';
 
 const SearchMobile = () => {
   const [showClearButtonSearchMobile, setShowClearButtonSearchMobile] =
     useState(false);
+  const { showSearchSuggestion, setShowSearchSuggestion } = useGlobalState();
   const {
     searchBarMobileRef,
     setExpandSearchBarMobile,
@@ -17,28 +21,42 @@ const SearchMobile = () => {
     search: "",
   });
   const query = inputSearch.get("search") || "";
+  const [debouncedQuery] = useDebounce(query, 300);
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (query.length !== 0) {
+    if (debouncedQuery.length !== 0) {
       setShowClearButtonSearchMobile(true);
-    }
-    return () => {
+    } else {
       setShowClearButtonSearchMobile(false);
-    };
-  }, [query]);
+    }
+  }, [debouncedQuery]);
+
+  useEffect(() => {
+    if (debouncedQuery.length !== 0 || expandSearchBarMobile) {
+      setShowSearchSuggestion(true);
+    } 
+    return () => {
+      setShowSearchSuggestion(false)
+    }
+  }, [debouncedQuery]);
 
   const handleSubmitSearching = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/${query}`);
-    setExpandSearchBarMobile(false)
+    navigate(`/search/${debouncedQuery}`);
+    setExpandSearchBarMobile(false);
+    setShowSearchSuggestion(false)
   };
 
   return (
     <>
+      {showSearchSuggestion && debouncedQuery.length !== 0 && (
+        <SearchSuggestion search={debouncedQuery} />
+      )}
       <button
         type="button"
         onClick={() => setExpandSearchBarMobile(true)}
-        className="sm:hidden inline-block p-1 text-white bg-gray-100/0 shadow-sm hover:bg-gray-100/5 transition duration-150 rounded-full"
+        className="sm:hidden inline-block p-1 text-white shadow-sm hover:bg-gray-100/5 transition duration-150 rounded-full"
       >
         <IoIosSearch size={24} className="icon" />
       </button>
@@ -56,34 +74,31 @@ const SearchMobile = () => {
             <button
               type="button"
               onClick={() => setExpandSearchBarMobile(false)}
-              className=" py-3.5 pl-4 pr-2 icon"
+              className="py-3.5 pl-4 pr-2 icon"
             >
-              <IoArrowBackOutline size={22} className="" />
+              <IoArrowBackOutline size={22} />
             </button>
             <input
               type="text"
               value={query}
               onChange={(e) =>
-                setInputSearch(
-                  (prev) => {
-                    prev.set("search", e.target.value);
-                    return prev;
-                  },
-                  {
-                    replace: true,
-                  }
-                )
+                setInputSearch((prev) => {
+                  prev.set("search", e.target.value);
+                  return prev;
+                })
               }
-              className="w-full bg-dark-0 pr-[52px] py-[25.5px] pl-3 placeholder:text-gray-400 focus:placeholder:text-gray-200 text-gray-200 outline-none text-[14px]  rounded-full"
+              className="w-full bg-dark-0 pr-[52px] py-[25.5px] pl-3 placeholder:text-gray-400 focus:placeholder:text-gray-200 text-gray-200 outline-none text-[14px] rounded-full"
               placeholder="Search Coin"
             />
-            <button type="submit" className=" py-3.5 pl-2 pr-4 icon">
+            <button type="submit" className="py-3.5 pl-2 pr-4 icon">
               <IoIosSearch size={24} />
             </button>
-            {query.length !== 0 && (
+            {debouncedQuery.length !== 0 && (
               <button
                 type="button"
-                className={`${showClearButtonSearchMobile ? "opacity-100" : " opacity-0"} transition ease-in-out duration-200`}
+                className={`${
+                  showClearButtonSearchMobile ? "opacity-100" : " opacity-0"
+                } transition ease-in-out duration-200`}
               >
                 <IoClose
                   size={24}
@@ -93,7 +108,7 @@ const SearchMobile = () => {
                       return prev;
                     })
                   }
-                  className="absolute top-[14px] right-14 icon"
+                  className="absolute top-[23px] right-14 icon"
                 />
               </button>
             )}

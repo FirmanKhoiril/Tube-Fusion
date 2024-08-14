@@ -19,7 +19,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/:search' element={<SearchResult />}/>
+          <Route path='/search/:result' element={<SearchResult />}/>
           <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
           <Route path='/term-of-condition' element={<TermOfConditions />}/>
           <Route path='/contact-us' element={<Contact />}/>
