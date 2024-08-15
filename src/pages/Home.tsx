@@ -7,7 +7,6 @@ import Error from "../components/Error"
 import Loading from "../components/Loading"
 import CustomScrollToTop from "../components/ScroolToTop"
 
-
 const Home = () => {
   const {data, isError, isFetching, isLoading, limitCoin} = useGetCryptoCoinLists()
 

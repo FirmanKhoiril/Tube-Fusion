@@ -11,8 +11,8 @@ const Navbar = () => {
   return (
 
       <nav className={`py-4  top-0 px-3 sm:px-2 sm:py-3  w-full fixed shadow-md z-40 bg-[#2b292e] left-0`}>
-        <div className="w-full container flex justify-between mx-auto">
-          <div className="flex items-center gap-2 ">     
+        <div className="w-full container flex justify-between mx-auto ">
+          <div className="flex items-center gap-4 ">     
               <button type='button'  onClick={() => setToogleSidebar(true)} className="p-2 hover:text-white">
                   <IoMenu  size={24}  className="icon" />
               </button> 
