@@ -5,6 +5,7 @@ import Error from "../components/Error";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
 import useGetCryptoHistory from "../hooks/useGetCryptoHistory";
+import ChangeTimePeriod from "../components/ChangeTimePeriod";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -20,6 +21,7 @@ const CryptoDetail = () => {
     isFetching: fetchingCoinHistory,
     isLoading: loadingCoinHistory,
     isError: errorCoinHistory,
+    setTimePeriod, timePeriod
   } = useGetCryptoHistory({
     uuid,
   });
@@ -27,9 +29,13 @@ const CryptoDetail = () => {
   const coinPrice = [];
   const coinTimestamp = [];
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-    coinPrice.push(coinHistory?.data?.history[i].price * 15000000);
+    coinPrice.push(coinHistory?.data?.history[i].price);
     coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp * 1000).toLocaleDateString());
   }
+
+  coinPrice.reverse();
+  coinTimestamp.reverse();
+
 
   const dataCharts = {
     labels: coinTimestamp,
@@ -38,9 +44,10 @@ const CryptoDetail = () => {
         label: "Price in USD",
         data: coinPrice,
         fill: true,
-        
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "#10b981",
+      backgroundColor: "rgba(75,192,192,0.2)", // This should apply the fill color
+      borderColor: "#10b981",
+      borderWidth: 2,  // Ensure the line itself is visible
+      tension: 0.4, 
       },
     ],
   };
@@ -50,9 +57,12 @@ const CryptoDetail = () => {
   if (isFetching || isLoading || fetchingCoinHistory || loadingCoinHistory) return <Loading width={100} height={100} isLoading />;
 
   return (
-    <div className="pt-20 container w-full mx-auto">
+    <div className="pt-24 container w-full mx-auto">
       CryptoDetail {uuid}
-      <Line data={dataCharts} />
+      <div className="w-full h-full ">
+        <ChangeTimePeriod value={timePeriod} functionCTP={setTimePeriod} />
+        <Line data={dataCharts} />
+      </div>
     </div>
   );
 };

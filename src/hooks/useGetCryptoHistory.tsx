@@ -23,6 +23,6 @@ export default function useGetCryptoHistory({uuid}: TUuid) {
         refetchOnWindowFocus: false
       })
       return {
-        isError, isLoading, error, data, isFetching, setTimePeriod
+        isError, isLoading, error, data, isFetching, setTimePeriod,timePeriod
       }
 }
