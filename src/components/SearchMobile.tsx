@@ -55,6 +55,7 @@ const SearchMobile = () => {
       )}
       <button
         type="button"
+        name="Search"
         onClick={() => setExpandSearchBarMobile(true)}
         className="sm:hidden inline-block p-1 text-white shadow-sm hover:bg-gray-100/5 transition duration-150 rounded-full"
       >
@@ -73,6 +74,7 @@ const SearchMobile = () => {
           >
             <button
               type="button"
+              name="ButtonBack"
               onClick={() => setExpandSearchBarMobile(false)}
               className="py-3.5 pl-4 pr-2 icon"
             >
@@ -90,12 +92,13 @@ const SearchMobile = () => {
               className="w-full bg-dark-0 pr-[52px] py-[25.5px] pl-3 placeholder:text-gray-400 focus:placeholder:text-gray-200 text-gray-200 outline-none text-[14px] rounded-full"
               placeholder="Search Coin"
             />
-            <button type="submit" className="py-3.5 pl-2 pr-4 icon">
+            <button type="submit" name="buttonSearch" className="py-3.5 pl-2 pr-4 icon">
               <IoIosSearch size={24} />
             </button>
             {debouncedQuery.length !== 0 && (
               <button
                 type="button"
+                name="closeSidebar"
                 className={`${
                   showClearButtonSearchMobile ? "opacity-100" : " opacity-0"
                 } transition ease-in-out duration-200`}

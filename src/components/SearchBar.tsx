@@ -32,11 +32,11 @@ const SearchBar = () => {
         })}
         placeholder="Search Coin"
         className="w-full peer text-gray-200 text-[14px] bg-dark-0 min-w-[240px] focus:border-gray-600 border-transparent border-2 pl-12 pr-10 py-3 outline-none md:min-w-[270px] lg:min-w-[300px] shadow-sm rounded-full " />
-        <button type="submit"  className="absolute top-[10px] left-5 peer-focus:text-gray-200/70 transition duration-150 text-gray-400/70">
+        <button type="submit" name="searchButton"  className="absolute top-[10px] left-5 peer-focus:text-gray-200/70 transition duration-150 text-gray-400/70">
             <IoIosSearch size={24} />
         </button>
         {query.length !== 0 && (
-            <button type="button" className={`${showClearButton ? "opacity-100" : " opacity-0"} transition ease-in-out duration-200`}>
+            <button type="button" name="clearSearch" className={`${showClearButton ? "opacity-100" : " opacity-0"} transition ease-in-out duration-200`}>
             <IoClose size={24} onClick={() => setInputSearch((prev) => {
                 prev.set("search", "")
                 return prev
