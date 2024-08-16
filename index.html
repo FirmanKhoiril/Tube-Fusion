@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Fusioner is your go-to platform for real-time cryptocurrency insights, market trends, and investment tracking. Stay informed with up-to-date data and intuitive charts to make smarter financial decisions." />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/icon/logo.jpg" />
-    <link rel="apple-touch-icon" href="/src/assets/icon/maskable-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/icon/logo.jpg" />
+    <link rel="apple-touch-icon" href="./src/assets/icon/maskable-icon.png" />
     <link rel="manifest" href="/public/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,9 @@
     <script>
       if('serviceWorker' in navigator) {
           window.addEventListener('load', () => {
-              navigator.serviceWorker.register('./public/serviceWorker.js')
+            navigator.serviceWorker.register('/public/serviceWorker.js')
                   .then((reg) => console.log('Success: ', reg.scope))
+                  .catch((error) => console.log('Service Worker registration failed:', error));
           })
       }
   </script>
