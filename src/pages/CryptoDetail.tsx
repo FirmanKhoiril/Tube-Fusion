@@ -6,10 +6,12 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from "react-chartjs-2";
 import useGetCryptoHistory from "../hooks/useGetCryptoHistory";
 import ChangeTimePeriod from "../components/ChangeTimePeriod";
+import { useState } from "react";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const CryptoDetail = () => {
+  const [timePeriod, setTimePeriod] = useState("3h")
   const { uuid } = useParams();
 
   const { data, isError, isFetching, isLoading } = useGetCryptoDetail({
@@ -21,9 +23,8 @@ const CryptoDetail = () => {
     isFetching: fetchingCoinHistory,
     isLoading: loadingCoinHistory,
     isError: errorCoinHistory,
-    setTimePeriod, timePeriod
   } = useGetCryptoHistory({
-    uuid,
+    uuid, timePeriod
   });
 
   const coinPrice = [];
@@ -44,10 +45,10 @@ const CryptoDetail = () => {
         label: "Price in USD",
         data: coinPrice,
         fill: true,
-      backgroundColor: "rgba(75,192,192,0.2)", // This should apply the fill color
-      borderColor: "#10b981",
-      borderWidth: 2,  // Ensure the line itself is visible
-      tension: 0.4, 
+        backgroundColor: "rgba(16, 185, 129, 0.2)",
+        borderColor: "#10b981",
+        borderWidth: 2, 
+        tension: 0.4, 
       },
     ],
   };
@@ -55,12 +56,12 @@ const CryptoDetail = () => {
   if (isError || errorCoinHistory) return <Error />;
 
   if (isFetching || isLoading || fetchingCoinHistory || loadingCoinHistory) return <Loading width={100} height={100} isLoading />;
-
+  
   return (
     <div className="pt-24 container w-full mx-auto">
       CryptoDetail {uuid}
       <div className="w-full h-full ">
-        <ChangeTimePeriod value={timePeriod} functionCTP={setTimePeriod} />
+        <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
         <Line data={dataCharts} />
       </div>
     </div>
