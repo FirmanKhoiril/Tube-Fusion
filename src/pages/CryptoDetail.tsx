@@ -7,6 +7,8 @@ import { Line } from "react-chartjs-2";
 import useGetCryptoHistory from "../hooks/useGetCryptoHistory";
 import ChangeTimePeriod from "../components/ChangeTimePeriod";
 import { useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import millify from "millify";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -36,13 +38,14 @@ const CryptoDetail = () => {
 
   coinPrice.reverse();
   coinTimestamp.reverse();
-
+  
+  const detail =  data?.data?.coin
 
   const dataCharts = {
     labels: coinTimestamp,
     datasets: [
       {
-        label: "Price in USD",
+        label: `${detail?.name} price in USD`,
         data: coinPrice,
         fill: true,
         backgroundColor: "rgba(16, 185, 129, 0.2)",
@@ -52,19 +55,39 @@ const CryptoDetail = () => {
       },
     ],
   };
-  console.log(data)
+
+
   if (isError || errorCoinHistory) return <Error />;
 
   if (isFetching || isLoading || fetchingCoinHistory || loadingCoinHistory) return <Loading width={100} height={100} isLoading />;
+
+  const coinChangePositive = parseFloat(detail.change) >= 0;
+  const coinColorClass = coinChangePositive ? 'text-green-400' : 'text-red-600';
   
   return (
-    <div className="pt-24 container w-full mx-auto">
-      CryptoDetail {uuid}
-      <div className="w-full h-full ">
-        <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
-        <Line data={dataCharts} />
+    <div className="container pt-24 mx-auto flex flex-col gap-2 w-full">
+    <div className="flex items-start gap-4 sm:items-center">
+      <LazyLoadImage width={40} height={40} src={detail.iconUrl} />
+      <div>
+        <h1 className="text-2xl font-bold tracking-wide">
+          {detail.name}&nbsp;
+          <span className="text-lg">({detail.symbol})</span>
+        </h1>
+        <p className="text-white/70">{detail.description}</p>
       </div>
     </div>
+    <div className="w-full h-full pt-4">
+      <div className="flex w-full justify-between items-center">
+        <div className="flex items-center gap-4">
+          <p>Change: <span className={`${coinColorClass} font-semibold tracking-wider`}>{detail.change}%</span></p>
+          <p>Current Bitcoin Price: ${millify(detail.price)}</p>
+        </div>  
+        <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
+      </div>
+      <Line data={dataCharts} />
+    </div>
+  </div>
+  
   );
 };
 
