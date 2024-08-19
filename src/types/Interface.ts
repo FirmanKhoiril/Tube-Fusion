@@ -8,7 +8,7 @@ export interface ICryptocurrency {
   iconUrl: string;
   listedAt: number;
   lowVolume: boolean;
-  marketCap: string;
+  marketCap: number;
   name: string;
   price: number;
   rank: number;
@@ -54,7 +54,7 @@ export interface ICardCrypto {
         iconUrl: string;
         listedAt: number;
         lowVolume: boolean;
-        marketCap: string;
+        marketCap: number;
         name: string;
         price: number;
         rank: number;

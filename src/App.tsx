@@ -14,21 +14,21 @@ const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'
 
 function App() {
   return (
-   <main className='poppins-regular flex items-start'>
-      <Sidebar />
-      <div className='w-full h-full flex flex-col gap-4 px-2'>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/search/:result' element={<SearchResult />}/>
-          <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
-          <Route path='/term-of-condition' element={<TermOfConditions />}/>
-          <Route path='/contact-us' element={<Contact />}/>
-          <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
-        </Routes>
-        <Footer />
-      </div>
-   </main>
+    <main className='poppins-regular flex items-start'>
+    <Sidebar />
+    <div className='w-full h-full flex justify-between flex-col gap-4 px-2'>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/search/:result' element={<SearchResult />}/>
+        <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
+        <Route path='/term-of-condition' element={<TermOfConditions />}/>
+        <Route path='/contact-us' element={<Contact />}/>
+        <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
+      </Routes>
+      <Footer />
+    </div>
+ </main>
   )
 }
 
