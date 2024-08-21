@@ -15,7 +15,10 @@ export default {
         primary: ["#10b981"],
         secondary: ["#B2DBDB"],
         darkPrimary: ["#2A2828"]
-      }
+      },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+      },
     },
   },
   plugins: [

@@ -23,7 +23,7 @@ function App() {
         <Route path='/search/:result' element={<SearchResult />}/>
         <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
         <Route path='/term-of-condition' element={<TermOfConditions />}/>
-        <Route path='/contact-us' element={<Contact />}/>
+        <Route path='/contact' element={<Contact />}/>
         <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
       </Routes>
       {/* <Footer /> */}
