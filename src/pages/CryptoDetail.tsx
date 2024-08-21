@@ -79,27 +79,47 @@ const CryptoDetail = () => {
     <p className="text-white/70">{detail.description}</p>
 
     {/* Additional Details */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-between text-white/80">
-      <div className="flex flex-col">
-        <p className="text-sm font-semibold">Market Cap</p>
-        <p>${millify(detail.marketCap)}</p>
-      </div>
-      <div className="flex flex-col">
-        <p className="text-sm font-semibold">Volume (24h)</p>
-        <p>${millify(detail["24hVolume"])}</p>
-      </div>
-      <div className="flex flex-col">
-        <p className="text-sm font-semibold">All Time High(daily avg.)</p>
-        <p>${millify(detail.allTimeHigh.price)}</p>
-      </div>
-      <div className="flex flex-col">
-        <p className="text-sm font-semibold">Supply</p>
-        <p>{millify(detail.fullyDilutedMarketCap)} {detail.symbol}</p>
-      </div>
-    </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-white/80">
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">Market Cap</p>
+    <p>${millify(detail.marketCap)}</p>
+  </div>
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">Volume (24h)</p>
+    <p>${millify(detail["24hVolume"])}</p>
+  </div>
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">All Time High(daily avg.)</p>
+    <p>${millify(detail.allTimeHigh.price)}</p>
+  </div>
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">Supply</p>
+    <p>{millify(detail.supply.total)} {detail.symbol}</p>
+  </div>
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">Max Supply</p>
+    <p>{millify(detail.supply.max)} {detail.symbol}</p>
+  </div>
+  <div className="flex flex-col">
+    <p className="text-sm font-semibold">Fully diluted market cap</p>
+    <p>{millify(detail.fullyDilutedMarketCap)} {detail.symbol}</p>
+  </div>
+</div>
 
-    {/* Action Buttons */}
-    <div className="flex w-full mt-auto justify-between">
+</div>
+
+  
+  {/* Chart Section */}
+  <div className="w-full bg-[#1e1d24] p-4 rounded-lg shadow-md h-full">
+    <div className="flex w-full justify-between items-center mb-4">
+      <div className="flex items-center text-[14px] sm:text-base gap-4">
+        <p>Change: <span className={`${coinColorClass} font-semibold tracking-wider`}>{detail.change}%</span></p>
+        <p>{detail.name} Price: ${millify(detail.price)}</p>
+      </div>
+      <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
+    </div>
+    <Line data={dataCharts} />
+    <div className="flex w-full pt-4 justify-between">
       <div className="flex gap-3">
         <button type="button" name={`Buy ${detail.name}`} className="px-8 py-2 text-white rounded-md hover:bg-green-600 bg-green-700">
           Buy
@@ -117,20 +137,8 @@ const CryptoDetail = () => {
         </button>
       </div>
     </div>
-</div>
-
-  
-  {/* Chart Section */}
-  <div className="w-full bg-[#1e1d24] p-4 rounded-lg shadow-md h-full">
-    <div className="flex w-full justify-between items-center mb-4">
-      <div className="flex items-center text-[14px] sm:text-base gap-4">
-        <p>Change: <span className={`${coinColorClass} font-semibold tracking-wider`}>{detail.change}%</span></p>
-        <p>{detail.name} Price: ${millify(detail.price)}</p>
-      </div>
-      <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
-    </div>
-    <Line data={dataCharts} />
   </div>
+  
 </div>
 
   
