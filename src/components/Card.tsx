@@ -7,12 +7,12 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Card = ({ coin }: ICardCrypto) => {
   const coinChangePositive = parseFloat(coin.change) >= 0;
-  const coinColorClass = coinChangePositive ? 'text-primary' : 'text-red-600';
+  const coinColorClass = coinChangePositive ? 'text-green-500' : 'text-red-600';
 
   return (
     <Link 
       to={`/crypto/${coin.uuid}`} 
-      className="w-full bg-dark hover:bg-darkPrimary py-5 px-4 sm:px-6 rounded-lg transition duration-200 flex items-center justify-between shadow-md hover:shadow-lg transform hover:scale-105"
+      className="w-full bg-dark-0 hover:bg-darkPrimary-0 py-5 px-4 sm:px-6 rounded-lg transition duration-200 flex items-center justify-between shadow-md hover:shadow-lg transform hover:scale-105"
       style={{ backgroundColor: '#2C2B33', color: '#B2DBDB' }}
     >
       <div className="flex items-center gap-4">
