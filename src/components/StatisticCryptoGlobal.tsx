@@ -3,7 +3,7 @@ import { IDataStats } from "../types/Interface";
 import { FaCoins, FaExchangeAlt, FaChartLine, FaMapMarkedAlt, FaDollarSign } from "react-icons/fa"; // Example icons
 
 const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, totalMarketCap, totalMarkets }: IDataStats) => {
-  
+
   const stats = [
     { icon: FaCoins, label: 'Total Coins', value: totalCoins, color: 'text-yellow-400' },
     { icon: FaMapMarkedAlt, label: 'Total Markets', value: totalMarkets, color: 'text-blue-400' },
@@ -17,10 +17,10 @@ const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, tot
       {stats.map(({ icon: Icon, label, value, color }, index) => (
         <div
           key={index}
-          className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg"
+          className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md rounded-lg"
         >
           <Icon className={`${color} text-lg sm:text-2xl`} />
-          <div>
+          <div className="flex flex-col gap-1">
             <h1 className="text-xs text-gray-400">{label}</h1>
             <span>{millify(value)}</span>
           </div>

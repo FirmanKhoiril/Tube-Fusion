@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
@@ -114,7 +120,7 @@
 }
 
 body {
-  @apply w-full bg-darkPrimary-0 min-h-screen text-white relative
+  @apply w-full bg-darkPrimary-0 min-h-screen text-white relative;
 }
 .icon {
   @apply hover:text-gray-400 transition duration-150 text-gray-200/70;

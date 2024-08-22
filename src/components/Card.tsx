@@ -19,13 +19,17 @@ const Card = ({ coin }: ICardCrypto) => {
         <p className="sm:inline-block hidden">
           #{coin.rank}
         </p>
-        <LazyLoadImage 
-          alt={coin.name} 
-          src={coin.iconUrl} 
-          width={40} 
-          height={40} 
-          effect="blur"
-        />
+        <picture>
+          <source srcSet={`${coin.iconUrl}?format=avif`} type="image/avif" />
+          <source srcSet={`${coin.iconUrl}?format=webp`} type="image/webp" />
+          <LazyLoadImage 
+            alt={coin.name} 
+            src={coin.iconUrl} 
+            width={40} 
+            height={40} 
+            effect="blur"
+          />
+        </picture>
         <div className="flex flex-col">
           <h1 className="font-medium text-lg">{coin.name}</h1>
           <span className="text-sm opacity-90">{coin.symbol}</span>
