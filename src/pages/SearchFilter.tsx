@@ -35,19 +35,16 @@ const SearchFilter = () => {
     }, [isFetchingNextPage, isLoading, fetchNextPage, inView]);
 
   return (
-    <div className="w-full pt-[88px] container mx-auto h-full flex-col gap-4 flex">
-      
+    <div className="w-full pt-[88px] container mx-auto h-full flex-col gap-4 flex">     
       <Filter />
       <h1 className="text-lg sm:text-xl font-medium capitalize">Market {tag === "all" ? "Popular" : tag}</h1>
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
         {isSuccess && (
-          <>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 pb-4">
             {data?.pages.map((page: any) => page.data?.coins.map((coin: ICryptocurrency) => (
                  <Card key={coin.rank + coin.uuid} coin={coin} /> 
             )))}
         </div>
-          </>
         )}
         <div>
         {hasNextPage && (

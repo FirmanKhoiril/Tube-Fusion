@@ -1,8 +1,8 @@
 import millify from "millify";
 import { IDataStats } from "../types/Interface";
-import { FaCoins, FaExchangeAlt, FaChartLine, FaMapMarkedAlt, FaDollarSign } from "react-icons/fa"; // Example icons
+import { FaCoins, FaExchangeAlt, FaChartLine, FaMapMarkedAlt, FaDollarSign } from "react-icons/fa";
 
-const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, totalMarketCap, totalMarkets }: IDataStats) => {
+const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, isLoading, totalMarketCap, totalMarkets }: IDataStats) => {
 
   const stats = [
     { icon: FaCoins, label: 'Total Coins', value: totalCoins, color: 'text-yellow-400' },
@@ -22,7 +22,7 @@ const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, tot
           <Icon className={`${color} text-lg sm:text-2xl`} />
           <div className="flex flex-col gap-1">
             <h1 className="text-xs text-gray-400">{label}</h1>
-            <span>{millify(value)}</span>
+            {isLoading ? <span className="h-6 sm:h-[27px] bg-gray-500/90 rounded-md w-10 "></span> : <span>{millify(value)}</span>}
           </div>
         </div>
       ))}

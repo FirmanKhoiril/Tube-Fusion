@@ -1,44 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fusioner: Make sure Connect to Internet</title>
-        <style type="text/css">
-            html {
-                height: 100%;
-            }
-            body {
-                height: 100%;
-                margin: 0;
-                background: #0a1f44;
-                display: flex;
-                align-items: center;
-                text-align: center;
-                justify-content: center;
-            }
-        
-            .city {
-                align-items: center;
-                width: 80%;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                padding: 40px 8%;
-                border-radius: 20px;
-                background: #fff;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusioner: Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-            .city-name {
-                font-size: 2em;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="city">
-            <h2 class="city-name">
-                <span>Please go online to check the current Crypto.</span>
-            </h2>
-        </div>
-    </body>
+        body, html {
+            height: 100%;
+            background: linear-gradient(135deg, #18263f, #101d3b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .container button {
+            background: #10b981;
+            border: none;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .container button:hover {
+            background: #0e8a67;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oops, You're Offline</h1>
+        <p>Please check your connection and try again.</p>
+        <button onclick="window.location.reload()">Reload</button>
+    </div>
+</body>
 </html>

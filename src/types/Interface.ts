@@ -31,11 +31,13 @@ export interface ICryptocurrency {
     totalExchanges: number
     totalMarketCap: number
     total24hVolume: number
+    isLoading: boolean
 }
 
 type TImage = {
   image: any
 }
+
 export type TFilterCardData = {
   name: string
   images: TImage[]
