@@ -3,43 +3,29 @@ import { IDataStats } from "../types/Interface";
 import { FaCoins, FaExchangeAlt, FaChartLine, FaMapMarkedAlt, FaDollarSign } from "react-icons/fa"; // Example icons
 
 const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, totalMarketCap, totalMarkets }: IDataStats) => {
+  
+  const stats = [
+    { icon: FaCoins, label: 'Total Coins', value: totalCoins, color: 'text-yellow-400' },
+    { icon: FaMapMarkedAlt, label: 'Total Markets', value: totalMarkets, color: 'text-blue-400' },
+    { icon: FaExchangeAlt, label: 'Total Exchanges', value: totalExchanges, color: 'text-green-400' },
+    { icon: FaDollarSign, label: 'Total MarketCap', value: totalMarketCap, color: 'text-purple-400' },
+    { icon: FaChartLine, label: 'Total 24H Volume', value: total24hVolume, color: 'text-red-400' },
+  ];
+
   return (
-    <div className="grid grid-cols-2 gap-6 py-4 rounded-lg sm:grid-cols-3">
-      <div className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg">
-        <FaCoins className="text-yellow-400 text-lg sm:text-2xl" />
-        <div>
-          <h1 className="text-xs text-gray-400">Total Coins</h1>
-          <p className="text-base sm:text-xl font-semibold text-white">{millify(totalCoins)}</p>
+    <div className="grid grid-cols-2 font-semibold text-white gap-6 text-base sm:text-xl py-4 rounded-lg sm:grid-cols-3">
+      {stats.map(({ icon: Icon, label, value, color }, index) => (
+        <div
+          key={index}
+          className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg"
+        >
+          <Icon className={`${color} text-lg sm:text-2xl`} />
+          <div>
+            <h1 className="text-xs text-gray-400">{label}</h1>
+            <span>{millify(value)}</span>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg">
-        <FaMapMarkedAlt className="text-blue-400 text-lg sm:text-2xl" />
-        <div>
-          <h1 className="text-xs text-gray-400">Total Markets</h1>
-          <p className="text-base sm:text-xl font-semibold text-white">{millify(totalMarkets)}</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg">
-        <FaExchangeAlt className="text-green-400 text-lg sm:text-2xl" />
-        <div>
-          <h1 className="text-xs text-gray-400">Total Exchanges</h1>
-          <p className="text-base sm:text-xl font-semibold text-white">{millify(totalExchanges)}</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg">
-        <FaDollarSign className="text-purple-400 text-lg sm:text-2xl" />
-        <div>
-          <h1 className="text-xs text-gray-400">Total MarketCap</h1>
-          <p className="text-base sm:text-xl font-semibold text-white">{millify(totalMarketCap)}</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-3 p-4 bg-dark-0 drop-shadow-md hover:drop-shadow-lg transition duration-200 ease-in-out rounded-lg">
-        <FaChartLine className="text-red-400 text-lg sm:text-2xl" />
-        <div>
-          <h1 className="text-xs text-gray-400">Total 24H Volume</h1>
-          <p className="text-base sm:text-xl font-semibold text-white">{millify(total24hVolume)}</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

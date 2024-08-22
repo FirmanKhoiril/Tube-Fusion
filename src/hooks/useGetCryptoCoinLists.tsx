@@ -3,7 +3,7 @@ import { FetchCrypto } from "../api/fetchCoinMarketCap"
 import { useState } from "react"
 
 export default function useGetCryptoCoinLists() {
-    const [limitCoin, setLimitCoin] = useState(50)
+    const [limitCoin, setLimitCoin] = useState(20)
     const {
         isLoading,
         isError,

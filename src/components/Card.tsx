@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import millify from "millify";
 import { Link } from "react-router-dom";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Card = ({ coin }: ICardCrypto) => {
   const coinChangePositive = parseFloat(coin.change) >= 0;
@@ -23,7 +24,7 @@ const Card = ({ coin }: ICardCrypto) => {
           src={coin.iconUrl} 
           width={40} 
           height={40} 
-          className="rounded-full" 
+          effect="blur"
         />
         <div className="flex flex-col">
           <h1 className="font-medium text-lg">{coin.name}</h1>

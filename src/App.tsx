@@ -7,7 +7,6 @@ import SearchResult from './pages/SearchResult'
 import withLazyLoading from './utils/withLoading'
 import SearchFilter from './pages/SearchFilter'
 import CryptoDetail from './pages/CryptoDetail'
-// import Footer from './components/Footer'
 
 const Contact = withLazyLoading(() => import('./pages/Contact'))
 const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
@@ -26,7 +25,6 @@ function App() {
         <Route path='/contact' element={<Contact />}/>
         <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
       </Routes>
-      {/* <Footer /> */}
     </div>
  </main>
   )
