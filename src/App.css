@@ -119,15 +119,24 @@
   font-style: normal;
 }
 
+.custom-tooltip {
+  font-size: 12px;
+  max-width: 150px; /* Default max width */
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  /* Adjust max-width for medium devices */
+  .custom-tooltip {
+    max-width: 500px;
+  }
+}
+
 body {
   @apply w-full bg-darkPrimary-0 min-h-screen text-white relative;
 }
 .icon {
   @apply hover:text-gray-400 transition duration-150 text-gray-200/70;
-}
-
-.custom-tooltip {
-  @apply text-xs !p-2 !bg-black/75 !rounded-md !text-white;
 }
 
 *::-webkit-scrollbar {

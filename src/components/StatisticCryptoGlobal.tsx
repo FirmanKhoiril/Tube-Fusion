@@ -2,7 +2,7 @@ import millify from "millify";
 import { IDataStats } from "../types/Interface";
 import { FaCoins, FaExchangeAlt, FaChartLine, FaMapMarkedAlt, FaDollarSign, FaInfoCircle } from "react-icons/fa";
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
 
 const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, isLoading, totalMarketCap, totalMarkets }: IDataStats) => {
 
@@ -26,7 +26,7 @@ const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, isL
       label: 'Total Exchanges',
       value: totalExchanges,
       color: 'text-green-400',
-      tooltip: 'Total number of exchanges available for trading cryptocurrencies.',
+      tooltip: 'Total exchanges available for trading cryptocurrencies.',
     },
     {
       icon: FaDollarSign,
@@ -44,6 +44,10 @@ const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, isL
     },
   ];
 
+  const getTooltipMaxWidth = () => {
+    return window.innerWidth >= 768 ? '404px' : '170px';
+  };
+
   return (
     <div className="grid grid-cols-2 font-semibold text-white gap-6 text-base sm:text-xl py-4 rounded-lg sm:grid-cols-3">
       {stats.map(({ icon: Icon, label, value, color, tooltip }, index) => (
@@ -59,7 +63,12 @@ const StatisticCryptoGlobal = ({ total24hVolume, totalCoins, totalExchanges, isL
                 className="text-gray-400 text-[0.8rem] cursor-pointer"
                 data-tooltip-id={`tooltip-${index}`}
               />
-              <Tooltip id={`tooltip-${index}`} style={{fontSize: 12}} className="custom-tooltip" content={tooltip} place="top" />
+              <Tooltip
+                id={`tooltip-${index}`}
+                style={{ fontSize: 12, maxWidth: getTooltipMaxWidth(), width: '100%' }}
+                content={tooltip}
+                place="top"
+              />
             </div>
             {isLoading ? (
               <span className="h-[23.5px] sm:h-[27px] bg-gray-500/90 rounded-md w-8"></span>
