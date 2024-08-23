@@ -12,7 +12,7 @@ const Card = ({ coin }: ICardCrypto) => {
   return (
     <Link 
       to={`/crypto/${coin.uuid}`} 
-      className="w-full bg-dark-0 hover:bg-darkPrimary-0 py-5 px-4 sm:px-6 rounded-lg transition duration-200 flex items-center justify-between shadow-md hover:shadow-lg transform hover:scale-105"
+      className="w-full py-5 px-4 sm:px-6 rounded-lg transition duration-200 flex items-center justify-between shadow-md hover:shadow-lg transform hover:scale-[1.02]"
       style={{ backgroundColor: '#2C2B33', color: '#B2DBDB' }}
     >
       <div className="flex items-center gap-4">
