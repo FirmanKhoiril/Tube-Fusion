@@ -1,10 +1,10 @@
 const Welcome = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-darkPrimary-0 text-white text-center px-6">
-      <h1 className="text-4xl sm:text-7xl font-bold text-primary-0 mb-6">
+      <h1 className="text-3xl xs:text-4xl sm:text-7xl font-bold text-primary-0 mb-6">
         Welcome to Fusioner
       </h1>
-      <p className="text-lg sm:text-2xl text-secondary-0 mb-12 max-w-2xl">
+      <p className="text-base xs:text-lg sm:text-2xl text-secondary-0 mb-12 max-w-2xl">
         Discover the power of cryptocurrencies. Fusioner brings you the latest insights, market data, and tools to make informed decisions in the crypto world.
       </p>
       <div className="flex gap-4">

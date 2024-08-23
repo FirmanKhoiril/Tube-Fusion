@@ -19,6 +19,9 @@ export default {
       animation: {
         'spin-slow': 'spin 10s linear infinite',
       },
+      screens: {
+        xs: '550px'
+      }
     },
   },
   plugins: [
