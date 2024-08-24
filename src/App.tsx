@@ -15,7 +15,7 @@ function App() {
   return (
     <main className='poppins-regular flex items-start'>
     <Sidebar />
-    <div className='w-full h-full flex justify-between flex-col gap-4 px-2'>
+    <div className='w-full h-full flex justify-between flex-col gap-4'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}/>

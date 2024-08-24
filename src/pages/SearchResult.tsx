@@ -18,7 +18,7 @@ const SearchResult = () => {
     if(isFetching && isLoading) return <Loading width={100} height={100} isLoading />
 
   return (
-    <div className='pt-20 container mx-auto flex w-full h-full flex-col'>
+    <div className='pt-20 container mx-auto flex w-full px-2 h-full flex-col'>
        <h1 className="text-lg sm:text-xl font-medium">Searching: {result}</h1>
        <div className="flex flex-col py-4 gap-4">
         {data?.data?.coins.map((coin: ICryptocurrency) => (
