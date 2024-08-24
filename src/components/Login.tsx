@@ -1,8 +1,16 @@
-import { SignedIn, SignedOut, SignInButton, UserButton, ClerkLoading, ClerkLoaded } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton, ClerkLoading, ClerkLoaded, useUser } from "@clerk/clerk-react";
+import { useEffect } from "react";
 import { LuUser2 } from "react-icons/lu";
+import { toast } from "sonner";
 
 const Login = () => {
-  // const {isSignedIn, user} = useUser()
+  const {isSignedIn, user} = useUser()
+
+  useEffect(() => {
+    if (isSignedIn) {
+      toast.success(`Successfully login with ${user?.firstName}!`);
+    }
+  }, [isSignedIn, user?.firstName]);
 
   return (
     <section className="w-full">

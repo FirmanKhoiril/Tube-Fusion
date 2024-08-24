@@ -40,7 +40,7 @@ const AboutUs = () => {
             About Fusioner
             </h1>
             <p className="mt-4 text-lg sm:text-2xl max-w-2xl mx-auto text-secondary-0">
-            At Fusioner, we're committed to revolutionizing the way you trade cryptocurrencies. Our mission is to empower traders with innovative tools, expert insights, and a secure platform.
+           We're committed to revolutionizing the way you trade cryptocurrencies. Our mission is to empower traders with innovative tools, expert insights, and a secure platform.
             </p>
         </div>
 

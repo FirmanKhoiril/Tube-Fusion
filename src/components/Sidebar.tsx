@@ -28,7 +28,7 @@ const Sidebar = () => {
     <div className={`${toogleSidebar ? "block" : "hidden"} w-full h-screen bg-black/20 fixed z-50`}></div>
      <aside
       ref={sidebarRef}
-      className={`fixed top-0 w-[80%] sm:w-[300px] drop-shadow-lg transition-transform duration-300 mx-auto bg-dark-0 flex items-start pr-4 sm:px-3 sm:py-4 pl-6 py-5 ${
+      className={`fixed top-0 w-[70%] sm:w-[300px] drop-shadow-lg transition-transform duration-300 mx-auto bg-dark-0 flex items-start pr-4 sm:px-3 sm:py-4 pl-6 py-5 ${
         toogleSidebar ? 'translate-x-0' : '-translate-x-full'
       } flex-col gap-6 h-screen z-[60]`}
     >
