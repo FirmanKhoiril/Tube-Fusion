@@ -10,7 +10,7 @@ const Welcome = () => {
       <div className="absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[450px] lg:h-[450px] bg-gradient-to-r from-green-400 to-blue-600 rounded-full opacity-50 blur-3xl bottom-[-50px] sm:bottom-[-75px] lg:bottom-[-100px] right-[-50px] sm:right-[-100px] lg:right-[-150px] animate-pulse"></div>
 
       {/* Content */}
-      <h1 className="relative text-4xl md:text-5xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 pb-8 z-10">
+      <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 pb-8 z-10">
         Unlock the Future of Trading
       </h1>
       <p className="relative text-sm sm:text-lg lg:text-2xl text-secondary-0 pb-10 max-w-3xl leading-relaxed z-10">

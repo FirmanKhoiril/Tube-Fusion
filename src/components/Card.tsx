@@ -13,7 +13,7 @@ const Card = ({ coin }: ICardCrypto) => {
     <Link 
       to={`/crypto/${coin.uuid}`} 
       className="w-full py-5 px-4 sm:px-6 rounded-lg transition duration-200 flex items-center justify-between shadow-md hover:shadow-lg transform hover:scale-[1.02]"
-      style={{ backgroundColor: '#2C2B33', color: '#B2DBDB' }}
+      style={{ backgroundColor: '#1e1e1f', color: '#B2DBDB' }}
     >
       <div className="flex items-center gap-4">
         <p className="sm:inline-block hidden">

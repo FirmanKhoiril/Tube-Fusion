@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose, IoArrowBackOutline } from "react-icons/io5";
@@ -25,27 +25,29 @@ const SearchMobile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (debouncedQuery.length !== 0) {
-      setShowClearButtonSearchMobile(true);
-    } else {
-      setShowClearButtonSearchMobile(false);
-    }
+    setShowClearButtonSearchMobile(debouncedQuery.length !== 0);
   }, [debouncedQuery]);
 
   useEffect(() => {
-    if (debouncedQuery.length !== 0 || expandSearchBarMobile) {
+    if (debouncedQuery.length > 0 || expandSearchBarMobile) {
       setShowSearchSuggestion(true);
-    } 
-    return () => {
-      setShowSearchSuggestion(false)
+    } else {
+      setShowSearchSuggestion(false);
     }
-  }, [debouncedQuery]);
+  }, [debouncedQuery, expandSearchBarMobile]);
 
-  const handleSubmitSearching = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitSearching = useCallback((e: React.FocusEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/search/${debouncedQuery}`);
     setExpandSearchBarMobile(false);
-    setShowSearchSuggestion(false)
+    setShowSearchSuggestion(false);
+  }, [debouncedQuery, navigate, setExpandSearchBarMobile, setShowSearchSuggestion]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputSearch((prev) => {
+      prev.set("search", e.target.value);
+      return prev;
+    });
   };
 
   return (
@@ -75,7 +77,13 @@ const SearchMobile = () => {
             <button
               type="button"
               name="ButtonBack"
-              onClick={() => setExpandSearchBarMobile(false)}
+              onClick={() => {
+                setExpandSearchBarMobile(false);
+                setInputSearch((prev) => {
+                  prev.set("search", "");
+                  return prev;
+                });
+              }}
               className="py-3.5 pl-4 pr-2 icon"
             >
               <IoArrowBackOutline size={22} />
@@ -83,12 +91,7 @@ const SearchMobile = () => {
             <input
               type="text"
               value={query}
-              onChange={(e) =>
-                setInputSearch((prev) => {
-                  prev.set("search", e.target.value);
-                  return prev;
-                })
-              }
+              onChange={handleInputChange}
               className="w-full bg-dark-0 pr-[52px] py-[25.5px] pl-3 placeholder:text-gray-400 focus:placeholder:text-gray-200 text-gray-200 outline-none text-[14px] rounded-full"
               placeholder="Search Coin"
             />
@@ -100,17 +103,18 @@ const SearchMobile = () => {
                 type="button"
                 name="closeSidebar"
                 className={`${
-                  showClearButtonSearchMobile ? "opacity-100" : " opacity-0"
+                  showClearButtonSearchMobile ? "opacity-100" : "opacity-0"
                 } transition ease-in-out duration-200`}
               >
                 <IoClose
                   size={24}
-                  onClick={() =>
+                  onClick={() => {
+                    setExpandSearchBarMobile(false);
                     setInputSearch((prev) => {
                       prev.set("search", "");
                       return prev;
-                    })
-                  }
+                    });
+                  }}
                   className="absolute top-[23px] right-14 icon"
                 />
               </button>

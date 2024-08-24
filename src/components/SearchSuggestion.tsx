@@ -21,7 +21,7 @@ const SearchSuggestion = ({ search }: TSearchParam) => {
 
   return (
     <div
-      className="fixed top-[74px] sm:hidden min-h-[20px] max-h-full inline-block px-4 overflow-y-auto left-0 w-full z-[60] bg-dark-0"
+      className="fixed top-[70px] sm:hidden min-h-[20px] max-h-full inline-block px-4 overflow-y-auto left-0 w-full z-[60] bg-dark-0"
     >
         {filteredCoins.map((coin) => (
           <Link

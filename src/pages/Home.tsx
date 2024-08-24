@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Welcome />
-      <section className="w-full h-full mx-auto px-2 flex-col gap-4 container flex">
+      <section className="w-full h-full mx-auto px-2 flex-col gap-4 pt-4 container flex">
         <div>
               <h1 className="text-lg sm:text-xl font-medium">Statistic Crypto Global</h1>
               <StatisticCryptoGlobal isLoading={isLoading} {...data?.data?.stats} />

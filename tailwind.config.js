@@ -11,10 +11,10 @@ export default {
         secondary: ["#B2DBDB"],
       },
       backgroundColor: {
-        dark: ["#2C2B33"],
+        dark: ["#1e1e1f"],
         primary: ["#10b981"],
         secondary: ["#B2DBDB"],
-        darkPrimary: ["#1E1E1F"]
+        darkPrimary: ["#121212"]
       },
       animation: {
         'spin-slow': 'spin 10s linear infinite',
