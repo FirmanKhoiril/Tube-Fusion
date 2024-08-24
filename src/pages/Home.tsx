@@ -7,6 +7,7 @@ import Error from "../components/Error"
 import CustomScrollToTop from "../components/ScroolToTop"
 import SkeletonCard from "../components/SkeletonCard"
 import Welcome from "../components/Welcome"
+import WithMetaTag from "../utils/withMetaTag"
 
 
 const Home = () => {
@@ -15,12 +16,12 @@ const Home = () => {
   if (isError) return <Error />;
 
   return (
-    <>
+    <WithMetaTag title="Fusioner: Your Ultimate Cryptocurrency Companion" keywords="Fusioner, cryptocurrency, crypto market, real-time data, investment tracking, market trends, crypto insights, cryptocurrency statistics, crypto charts, cryptocurrency analysis" link="https://fusioner.vercel.app/" desc="Fusioner is your go-to platform for real-time cryptocurrency insights, market trends, and investment tracking. Stay informed with up-to-date data and intuitive charts to make smarter financial decisions.">
       <Welcome />
       <section className="w-full h-full mx-auto px-2 flex-col gap-4 pt-4 container flex">
         <div>
-              <h1 className="text-lg sm:text-xl font-medium">Statistic Crypto Global</h1>
-              <StatisticCryptoGlobal isLoading={isLoading} {...data?.data?.stats} />
+          <h1 className="text-lg sm:text-xl font-medium">Statistic Crypto Global</h1>
+          <StatisticCryptoGlobal isLoading={isLoading} {...data?.data?.stats} />
         </div>
         <div className="w-full flex items-center justify-between">
               <h1 className="text-lg sm:text-xl font-medium">{limitCoin} Market Crypto</h1>
@@ -40,7 +41,7 @@ const Home = () => {
             </div>
         <CustomScrollToTop />
       </section>
-    </>
+    </WithMetaTag>
   );
 };
 

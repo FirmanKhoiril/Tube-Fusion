@@ -9,6 +9,7 @@ import { Triangle } from "react-loader-spinner"
 import CustomScrollToTop from "../components/ScroolToTop"
 import Filter from "../components/Filter"
 import useGetFilterTag from "../hooks/useGetFilterTag"
+import WithMetaTag from "../utils/withMetaTag"
 
 const SearchFilter = () => {
   const {tag, timePeriodValue} = useGetFilterTag()
@@ -35,7 +36,13 @@ const SearchFilter = () => {
     }, [isFetchingNextPage, isLoading, fetchNextPage, inView]);
 
   return (
-    <div className="w-full pt-[88px] container mx-auto px-2 h-full flex-col gap-4 flex">     
+    <WithMetaTag 
+      title="Fusioner: Categories Cryptocurrency Markets"
+      keywords="Fusioner, cryptocurrency categories, crypto market search, categories crypto by tag, crypto market trends, cryptocurrency data"
+      desc="Use Fusioner's search categories to explore and categories cryptocurrency markets by tags, time periods, and more. Find popular or specific cryptocurrencies that match your criteria."
+      link="https://fusioner.vercel.app/cryptocurrency/filter"
+    >
+      <div className="w-full pt-[88px] container mx-auto px-2 h-full flex-col gap-4 flex">     
       <Filter />
       <h1 className="text-lg sm:text-xl font-medium capitalize">Market {tag === "all" ? "Popular" : tag}</h1>
       {isLoading && isFetching && <Loading width={100} height={100} isLoading />}
@@ -61,6 +68,7 @@ const SearchFilter = () => {
       </div>
      <CustomScrollToTop />
     </div>
+    </WithMetaTag>
   )
 }
 

@@ -2,7 +2,7 @@
 
 const TermOfConditions = () => {
   return (
-    <div>TermOfConditions</div>
+    <div className="px-2">TermOfConditions</div>
   )
 }
 

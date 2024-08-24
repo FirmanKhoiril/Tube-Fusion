@@ -63,7 +63,7 @@ const CryptoDetail = () => {
   const coinColorClass = coinChangePositive ? 'text-green-400' : 'text-red-600';
   
   return (
-    <WithMetaTag link={`https://fusioner.vercel.app/crypto/${uuid}`} title={`Fusioner: ${detail?.name}`} desc={`Explore detailed insights on ${detail?.name} including its current price, market cap, trading volume, and historical performance. Stay updated with live price charts and take advantage of buying or selling options on Fusioner.`} keywords={`Fusioner, ${detail?.name}, ${detail?.symbol}, crypto price, cryptocurrency details, market cap, buy crypto, sell crypto, crypto charts, ${detail?.name} insights`}>
+    <WithMetaTag link={`https://fusioner.vercel.app/crypto/${uuid}`} title={`Fusioner: ${detail?.name} crypto`} desc={`Explore detailed insights on ${detail?.name} including its current price, market cap, trading volume, and historical performance. Stay updated with live price charts and take advantage of buying or selling options on Fusioner.`} keywords={`Fusioner, ${detail?.name}, ${detail?.symbol}, crypto price, cryptocurrency details, market cap, buy crypto, sell crypto, crypto charts, ${detail?.name} insights`}>
       <div className="pt-[92px] px-2 sm:pt-24 mx-auto grid gap-4 sm:gap-10 sm:px-3 w-full grid-cols-1 lg:grid-cols-2">
     {/* Coin Details Section */}
     <div className="flex flex-col p-4 rounded-lg shadow-md bg-[#1e1d24] gap-3 sm:gap-6">

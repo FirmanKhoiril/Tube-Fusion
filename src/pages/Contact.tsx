@@ -18,7 +18,7 @@ const Contact = () => {
 
   return (
     <WithMetaTag title="Fusioner: Contact Us" keywords="Fusioner, crypto support, contact Fusioner, cryptocurrency inquiries, crypto help, Fusioner customer service" link="https://fusioner.vercel.app/contact"  desc="Reach out to Fusioner for any inquiries or support. We're here to help with all your cryptocurrency needs, providing expert assistance and guidance on your crypto journey.">
-      <div className="min-h-screen relative w-full flex flex-col pt-[72px] md:pt-0 md:flex-row-reverse items-center justify-around">
+      <div className="min-h-screen relative w-full flex flex-col pt-[72px] px-2 md:pt-0 md:flex-row-reverse items-center justify-around">
       <div className="absolute top-32 -left-8 md:left-auto right-0 md:right-20 blur-xl -z-10 h-44 w-32 md:h-56 md:w-48 rounded-full  bg-gradient-to-tr bg-[#10b981] via-[#B2DBDB] to-[#34d399] animate-spin-slow"></div>
       <div className="w-full mx-auto flex items-center justify-center max-w-1/2">
       <div className="bg-dark-0/70 p-8 max-w-[620px] rounded-lg shadow-lg w-full">

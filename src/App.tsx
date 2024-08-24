@@ -10,6 +10,7 @@ import CryptoDetail from './pages/CryptoDetail'
 
 const Contact = withLazyLoading(() => import('./pages/Contact'))
 const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
+const AboutUs = withLazyLoading(() => import('./pages/AboutUs'))
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/search/:result' element={<SearchResult />}/>
         <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
+        <Route path='/about' element={<AboutUs />}/>
         <Route path='/term-of-condition' element={<TermOfConditions />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/cryptocurrency/filter' element={<SearchFilter />}/>
