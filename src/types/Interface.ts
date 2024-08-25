@@ -66,3 +66,8 @@ export interface ICardCrypto {
         uuid: string;
     }
 }
+
+export type TChangeTimePeriodParams = {
+  functionCTP: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  value: string | null;
+};

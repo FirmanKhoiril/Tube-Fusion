@@ -3,7 +3,7 @@ import { Triangle } from "react-loader-spinner"
 interface ISizeLoading {
   width: number
   height: number
-  isLoading: boolean
+  isLoading?: boolean
 } 
 
 const Loading = ({width, height, isLoading}: ISizeLoading) => {

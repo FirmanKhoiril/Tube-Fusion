@@ -13,14 +13,14 @@ const Sidebar = () => {
   const menuItems = [
     { name: 'Home', path: '/', icon: <FaHome /> },
     { name: 'Categories', path: '/cryptocurrency/filter', icon: <FaFilter /> },
-    { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
-    { name: 'Terms of Conditions', path: '/term-of-condition', icon: <FaFileAlt /> },
     { name: 'Market Overview', path: '/market', icon: <FaChartLine /> },
-    { name: 'Settings', path: '/settings', icon: <FaCog /> },
     { name: 'Profile', path: '/profile', icon: <FaUser /> },
     { name: 'Notifications', path: '/notifications', icon: <FaBell /> },
-    { name: 'Help Center', path: '/support-center', icon: <FaQuestionCircle /> },
     { name: 'About Us', path: '/about', icon: <FaInfoCircle /> },
+    { name: 'Terms of Conditions', path: '/term-of-condition', icon: <FaFileAlt /> },
+    { name: 'Help Center', path: '/support-center', icon: <FaQuestionCircle /> },
+    { name: 'Contact', path: '/contact', icon: <FaEnvelope /> },
+    { name: 'Settings', path: '/settings', icon: <FaCog /> },
   ];
 
   return (

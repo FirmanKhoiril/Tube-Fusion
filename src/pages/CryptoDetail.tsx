@@ -57,7 +57,7 @@ const CryptoDetail = () => {
 
   if (isError || errorCoinHistory) return <Error />;
 
-  if (isFetching || isLoading || fetchingCoinHistory || loadingCoinHistory) return <Loading width={100} height={100} isLoading />;
+  if (isFetching || isLoading) return <Loading width={100} height={100} isLoading />;
 
   const coinChangePositive = parseFloat(detail.change) >= 0;
   const coinColorClass = coinChangePositive ? 'text-green-400' : 'text-red-600';
@@ -120,7 +120,44 @@ const CryptoDetail = () => {
         </div>
         <ChangeTimePeriod value={timePeriod} functionCTP={(e) => setTimePeriod(e.currentTarget.value)} />
       </div>
-      <Line data={dataCharts} />
+      <div className="w-full border-b border-white/5 pb-1">
+            {fetchingCoinHistory || loadingCoinHistory ? (
+              <div className="w-full h-[200px] sm:h-[362px] flex items-center justify-center">
+                <Loading width={50} height={50}  />
+              </div>
+            ) : (
+              <Line 
+                data={{
+                  ...dataCharts,
+                  datasets: dataCharts.datasets.map(dataset => ({
+                    ...dataset,
+                    pointRadius: 0,
+                  })),
+                }} 
+                options={{
+                  responsive: true,
+                  scales: {
+                    x: {
+                      display: false,
+                      grid: {
+                        display: false,
+                      },
+                    },
+                    y: {
+                      grid: {
+                        display: false,
+                      },
+                    },
+                  },
+                  plugins: {
+                    legend: {
+                      align: "end",
+                    },
+                  },
+                }} 
+              />
+            )}
+          </div>
       <div className="flex w-full pt-4 justify-between">
         <div className="flex gap-3">
           <button type="button" name={`Buy ${detail.name}`} className="px-8 py-2 text-white rounded-md hover:bg-green-600 bg-green-700">

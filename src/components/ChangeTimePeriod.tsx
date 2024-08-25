@@ -1,10 +1,6 @@
 import { TbClockRecord } from "react-icons/tb";
 import { timePeroidOptions } from "../context/dummyData";
-
-export type TChangeTimePeriodParams = {
-  functionCTP: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  value: string | null;
-};
+import { TChangeTimePeriodParams } from "../types/Interface";
 
 const ChangeTimePeriod: React.FC<TChangeTimePeriodParams> = ({ functionCTP, value }: TChangeTimePeriodParams) => {
   return (
