@@ -15,8 +15,9 @@ const ProfileUser = () => {
         <header className="flex items-center justify-between p-6 bg-gradient-to-r from-green-400/50 via-blue-500/40 to-purple-600/20 shadow-lg rounded-lg">
           <div className="flex items-center">
             <img
-              src={user?.imageUrl || '/default-profile.png'}
+              src={user?.imageUrl || ''}
               alt="Profile"
+              loading="lazy"
               className="w-16 h-16 rounded-full border-4 border-white"
             />
             <div className="ml-4">
