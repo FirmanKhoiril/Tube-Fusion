@@ -13,7 +13,7 @@ const Contact = () => {
       link="https://fusioner.vercel.app/contact"
       desc="Reach out to Fusioner for any inquiries or support. We're here to help with all your cryptocurrency needs, providing expert assistance and guidance on your crypto journey."
     >
-      <div className="min-h-screen relative w-full flex flex-col pt-[72px] px-2 md:pt-0 md:flex-row-reverse items-center justify-around">
+      <div className="min-h-screen relative w-full overflow-x-hidden flex flex-col pt-[72px] px-2 md:pt-0 md:flex-row-reverse items-center justify-around">
         
         {/* Rotating Gradient Bubble */}
         <div className="absolute top-32 -right-8 md:right-20 blur-2xl -z-10 h-44 w-36 md:h-56 md:w-48 rounded-full bg-gradient-to-tr from-[#10b981] via-[#B2DBDB] to-[#34d399] animate-spin-slow"></div>
