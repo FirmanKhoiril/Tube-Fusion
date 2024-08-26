@@ -1,30 +1,10 @@
-import { FaLock, FaLightbulb, FaChartLine, FaUsers } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 import WithMetaTag from '../utils/withMetaTag';
+import Marquee from "react-fast-marquee";
+import { coreValues, supportedCompanies } from '../context/dummyData';
 
 const AboutUs = () => {
-  const coreValues = [
-    {
-      icon: FaLock,
-      title: "Security",
-      description: "We prioritize the safety of your investments with cutting-edge security measures.",
-    },
-    {
-      icon: FaLightbulb,
-      title: "Innovation",
-      description: "We embrace new technologies and ideas to keep you ahead in the crypto world.",
-    },
-    {
-      icon: FaChartLine,
-      title: "Transparency",
-      description: "Our platform is built on trust, with clear and honest communication.",
-    },
-    {
-      icon: FaUsers,
-      title: "Community",
-      description: "We believe in the power of community and foster a space where everyone can thrive.",
-    },
-  ];
 
   return (
     <WithMetaTag 
@@ -54,6 +34,22 @@ const AboutUs = () => {
             </div>
             ))}
         </div>
+
+         {/* Supported Companies Section */}
+         <div className="relative w-full overflow-hidden py-12">
+          <Marquee speed={50}>
+            <div className="flex items-center justify-center gap-12">
+              {supportedCompanies.concat(supportedCompanies).map(({ name, icon: Icon }, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <Icon className="text-6xl text-gray-300 mb-2 transition-colors duration-300 hover:text-current" />
+                  <span className="text-lg text-secondary-0">{name}</span>
+                </div>
+              ))}
+            </div>
+          </Marquee>
+        </div>
+
+       
         <section className="text-center pt-20">
             <h2 className="text-3xl font-bold mb-6">
                 Ready to dive into the world of cryptocurrencies?

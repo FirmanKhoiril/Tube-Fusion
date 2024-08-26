@@ -41,10 +41,10 @@ const Sidebar = () => {
           <IoClose size={24} className="icon" />
         </button>
         <h1 className="tracking-wider font-semibold text-lg">
-          Hi, <span className="text-primary-0 font-bold cinzel">{user?.firstName || "Guest"} {user?.lastName || ""}</span>
+          Hi, <span className="text-primary-0 font-bold cinzel">{user?.firstName || "Guest"}</span>
         </h1>
       </div>
-      <nav className="mt-8">
+      <nav className="mt-4">
         <ul className="flex flex-col gap-4">
           {menuItems.map((item, index) => (
             <li key={index}>

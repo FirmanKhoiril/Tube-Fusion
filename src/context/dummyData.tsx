@@ -1,5 +1,5 @@
 import { BsFire,BsFillShieldLockFill , BsFillPiggyBankFill , BsFillHouseDoorFill } from "react-icons/bs";
-import { FaCoins, FaExchangeAlt, FaGavel, FaLock, FaLaugh } from "react-icons/fa";
+import { FaCoins, FaExchangeAlt, FaGavel, FaLock, FaLaugh, FaLightbulb, FaChartLine, FaUsers, FaGoogle, FaApple, FaFacebookF, FaInstagram, FaTwitter, FaAmazon, FaMicrosoft, FaLinkedin } from "react-icons/fa";
 import {doge, bitcoin_btc, bnb, usdc, usdt, solana, xrp} from '../assets/image/all'
 import {ant, compoundIcon, ConstitutionDAO, CurveDAO, MantraDao, uniswapV2, Illuvium, SyntetixNetwork, AAve} from '../assets/image/Dao'
 import {ada, eth, ListaDAO, Polkadot, Near, Mina, Conflux, Polygon} from '../assets/image/staking'
@@ -10,6 +10,7 @@ import {Baby_Doge, bonk, shiba, brett, pepe, dogwifhat, Floki, Popcat} from '../
 import {Avalanche, TheGraph, Chainlink, Jupiter, ICP, Injective, Stacks, Aave, Theta} from '../assets/image/defi'
 import { coinex, okx, cronos, mandalaExchange, ftxExchange, Leo, mxtoken, GateToken} from '../assets/image/exchange'
 import { oneInch, DyDx, uniswap, jupiter, PancakeSwap, SNX, ThorChain, Raydium } from '../assets/image/dex'
+import { SiCoinmarketcap, SiBinance, SiCoinbase   } from "react-icons/si";
 
 export const categories = [
   { 
@@ -357,3 +358,42 @@ export const timePeroidOptions = [
   '3h', '24h', '7d','30d', '3m', '1y', "3y", "5y"
 ];
    
+
+export const coreValues = [
+  {
+    icon: FaLock,
+    title: "Security",
+    description: "We prioritize the safety of your investments with cutting-edge security measures.",
+  },
+  {
+    icon: FaLightbulb,
+    title: "Innovation",
+    description: "We embrace new technologies and ideas to keep you ahead in the crypto world.",
+  },
+  {
+    icon: FaChartLine,
+    title: "Transparency",
+    description: "Our platform is built on trust, with clear and honest communication.",
+  },
+  {
+    icon: FaUsers,
+    title: "Community",
+    description: "We believe in the power of community and foster a space where everyone can thrive.",
+  },
+];
+
+
+
+export const supportedCompanies = [
+  { name: "Google", icon: FaGoogle },
+  { name: "Apple", icon: FaApple },
+  { name: "Facebook", icon: FaFacebookF },
+  { name: "Instagram", icon: FaInstagram },
+  { name: "Twitter", icon: FaTwitter },
+  { name: "Amazon", icon: FaAmazon },
+  { name: "Microsoft", icon: FaMicrosoft },
+  { name: "LinkedIn", icon: FaLinkedin },
+  { name: "Binance", icon: SiBinance  },
+  { name: "Coinbase", icon: SiCoinbase  },
+  { name: "CoinMarketCap", icon: SiCoinmarketcap },
+];
