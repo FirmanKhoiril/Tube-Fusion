@@ -3,12 +3,14 @@ import { Route, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import SearchResult from './pages/SearchResult'
+import SearchCryptoResult from './pages/SearchResult'
 import withLazyLoading from './utils/withLoading'
 import SearchFilter from './pages/SearchFilter'
 import CryptoDetail from './pages/CryptoDetail'
 import ProtectedRoute from './utils/ProtectedRoute'
 import { Toaster } from 'sonner'
+import SearchCryptoNews from './pages/SearchCryptoNews'
+import News from './pages/News'
 
 
 const Contact = withLazyLoading(() => import('./pages/Contact'))
@@ -25,7 +27,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/search/:result' element={<SearchResult />}/>
+        <Route path='/search/:result' element={<SearchCryptoResult />}/>
+        <Route path='/crypto/news/:result' element={<SearchCryptoNews />}/>
+        <Route path='/crypto/news' element={<News />}/>
         <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
         <Route path='/profile' element={
           <ProtectedRoute>

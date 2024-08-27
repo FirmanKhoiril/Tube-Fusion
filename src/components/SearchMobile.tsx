@@ -109,7 +109,6 @@ const SearchMobile = () => {
                 <IoClose
                   size={24}
                   onClick={() => {
-                    setExpandSearchBarMobile(false);
                     setInputSearch((prev) => {
                       prev.set("search", "");
                       return prev;

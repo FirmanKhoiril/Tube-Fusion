@@ -1,6 +1,6 @@
 import { useGlobalState } from "../context/useStore";
 import { IoClose } from "react-icons/io5";
-import { FaHome, FaFilter, FaEnvelope, FaFileAlt, FaChartLine, FaCog, FaInfoCircle, FaUser, FaBell, FaQuestionCircle } from "react-icons/fa";
+import { FaHome, FaFilter, FaEnvelope, FaFileAlt, FaChartLine, FaCog, FaInfoCircle, FaUser, FaBell, FaQuestionCircle, FaNewspaper } from "react-icons/fa";
 import useHandlerClickOutsideEventSidebar from "../hooks/useHandlerClickOutsideEventSidebar";
 import { useUser } from "@clerk/clerk-react";
 import { NavLink } from "react-router-dom";
@@ -14,6 +14,7 @@ const Sidebar = () => {
     { name: 'Home', path: '/', icon: <FaHome /> },
     { name: 'Categories', path: '/cryptocurrency/filter', icon: <FaFilter /> },
     { name: 'Market Overview', path: '/market', icon: <FaChartLine /> },
+    { name: 'News', path: '/crypto/news', icon: <FaNewspaper /> },
     { name: 'Profile', path: '/profile', icon: <FaUser /> },
     { name: 'Notifications', path: '/notifications', icon: <FaBell /> },
     { name: 'About Us', path: '/about', icon: <FaInfoCircle /> },
