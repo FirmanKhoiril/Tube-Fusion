@@ -9,9 +9,6 @@ import SearchFilter from './pages/SearchFilter'
 import CryptoDetail from './pages/CryptoDetail'
 import ProtectedRoute from './utils/ProtectedRoute'
 import { Toaster } from 'sonner'
-import SearchCryptoNews from './pages/SearchCryptoNews'
-import News from './pages/News'
-
 
 const Contact = withLazyLoading(() => import('./pages/Contact'))
 const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
@@ -28,8 +25,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/search/:result' element={<SearchCryptoResult />}/>
-        <Route path='/crypto/news/:result' element={<SearchCryptoNews />}/>
-        <Route path='/crypto/news' element={<News />}/>
         <Route path='/crypto/:uuid' element={<CryptoDetail />}/>
         <Route path='/profile' element={
           <ProtectedRoute>
