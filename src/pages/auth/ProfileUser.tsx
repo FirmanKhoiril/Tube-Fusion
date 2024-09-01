@@ -1,8 +1,9 @@
-import { useUser } from "@clerk/clerk-react";
+import { useUser, useClerk } from "@clerk/clerk-react";
 import WithMetaTag from "../../utils/withMetaTag";
 
 const ProfileUser = () => {
   const { user } = useUser();
+  const { signOut, redirectToUserProfile } = useClerk();
 
   return (
     <WithMetaTag
@@ -11,13 +12,12 @@ const ProfileUser = () => {
       link="https://fusioner.vercel.app/profile"
       desc="Fusioner is your go-to platform for real-time cryptocurrency insights, market trends, and investment tracking. Stay informed with up-to-date data and intuitive charts to make smarter financial decisions."
     >
-      <div className="min-h-screen container mx-auto pt-24  sm:px-0 px-2 bg-darkPrimary-0 text-white">
+      <div className="min-h-screen container mx-auto pt-24 sm:px-0 px-2 bg-darkPrimary-0 text-white">
         <header className="flex items-center justify-between p-6 bg-gradient-to-r from-green-400/50 via-blue-500/40 to-purple-600/20 shadow-lg rounded-lg">
           <div className="flex items-center">
             <img
-              src={user?.imageUrl || ''}
-              alt="Profile"
-              loading="lazy"
+              src={user?.imageUrl || ""}
+              alt={`${user?.fullName}`}
               className="w-16 h-16 rounded-full border-4 border-white"
             />
             <div className="ml-4">
@@ -85,10 +85,16 @@ const ProfileUser = () => {
           <div className="bg-dark-0 p-6 rounded-lg shadow-lg col-span-1 sm:col-span-2 lg:col-span-3">
             <h2 className="text-2xl font-semibold mb-4">Settings</h2>
             <div className="flex justify-end">
-              <button className="bg-primary-0 hover:bg-green-500 text-dark-0 px-4 py-2 rounded-md transition duration-300 shadow-md">
+              <button
+                onClick={() => redirectToUserProfile()}
+                className="bg-primary-0 hover:bg-green-500 text-dark-0 px-4 py-2 rounded-md transition duration-300 shadow-md"
+              >
                 Edit Profile
               </button>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300 shadow-md ml-4">
+              <button
+                onClick={() => signOut()}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300 shadow-md ml-4"
+              >
                 Log Out
               </button>
             </div>

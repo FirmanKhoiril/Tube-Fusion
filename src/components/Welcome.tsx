@@ -14,7 +14,7 @@ const Welcome = () => {
         Unlock the Future of Trading
       </h1>
       <p className="relative text-sm sm:text-lg lg:text-2xl text-secondary-0 pb-10 max-w-3xl leading-relaxed z-10">
-        Fusioner empowers you with advanced tools and insights to navigate the dynamic world of cryptocurrencies. Take your trading to the next level with real-time data, expert analysis, and innovative strategies.
+        Fusioner gives you the tools and insights to succeed in the world of cryptocurrencies.
       </p>
       <div className="relative flex flex-col sm:flex-row gap-6 z-10">
         <button className="bg-primary-0 hover:bg-green-500 text-dark-0 px-8 py-4 rounded-full font-semibold text-lg shadow-lg transition transform hover:scale-105">

@@ -13,6 +13,7 @@ import { Toaster } from 'sonner'
 const Contact = withLazyLoading(() => import('./pages/Contact'))
 const TermOfConditions = withLazyLoading(() => import('./pages/TermOfConditions'))
 const AboutUs = withLazyLoading(() => import('./pages/AboutUs'))
+const Settings = withLazyLoading(() => import('./pages/Settings'))
 const ProfileUser = withLazyLoading(() => import('./pages/auth/ProfileUser'))
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <ProfileUser />
           </ProtectedRoute>
         }/>
+        <Route path='/settings' element={<Settings />}/>
         <Route path='/about' element={<AboutUs />}/>
         <Route path='/term-of-condition' element={<TermOfConditions />}/>
         <Route path='/contact' element={<Contact />}/>

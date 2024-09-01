@@ -8,7 +8,7 @@ const TermsOfUse = () => {
       keywords="Fusioner, Terms of Use, cryptocurrency trading, user agreement, trading platform terms"
       link="https://fusioner.vercel.app/terms"
     >
-      <div className="pt-20 px-4 min-h-screen w-full pb-12 container mx-auto bg-darkPrimary-0 text-white">
+      <div className="pt-24 px-4 min-h-screen w-full pb-12 container mx-auto bg-darkPrimary-0 text-white">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
           Terms of Use
         </h1>
