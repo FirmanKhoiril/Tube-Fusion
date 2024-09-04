@@ -1,4 +1,3 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ContactImage from '../assets/icon/Contact.svg';
 import WithMetaTag from "../utils/withMetaTag";
 import { useContactForm } from '../hooks/useContactForm';
@@ -82,7 +81,7 @@ const Contact = () => {
 
         {/* Contact Image */}
         <div className="w-full md:flex items-center justify-center hidden min-h-screen max-w-1/2 relative z-10">
-          <LazyLoadImage src={ContactImage} className="max-w-[350px] lg:max-w-[440px] xl:max-w-[500px] w-full" />
+          <img src={ContactImage} alt='Contact Us' className="max-w-[350px] lg:max-w-[440px] xl:max-w-[500px] w-full" />
         </div>
 
         {/* Additional Bubbles */}
