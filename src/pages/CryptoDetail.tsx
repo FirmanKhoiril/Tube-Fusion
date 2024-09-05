@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import useGetCryptoDetail from "../hooks/useGetCryptoDetail";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
-import { Line } from "react-chartjs-2";
 import useGetCryptoHistory from "../hooks/useGetCryptoHistory";
 import ChangeTimePeriod from "../components/ChangeTimePeriod";
 import { useState } from "react";
@@ -12,19 +10,13 @@ import millify from "millify";
 import { BsFillBookmarkPlusFill } from "react-icons/bs";
 import { TbRosetteDiscountCheckFilled } from "react-icons/tb";
 import { GoHeart, GoHeartFill  } from "react-icons/go";
-import useManagedCryptoCharts from "../hooks/useManagedCryptoCharts";
 import WithMetaTag from "../utils/withMetaTag";
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
-
-export type TLinks = {
-  name: string,
-  type: string,
-  url: string
-}
+import LineCharts from "../components/LineCharts";
+import { TLinks } from "../types/Interface";
+import { useGlobalState } from "../context/useStore";
 
 const CryptoDetail = () => {
-  const [timePeriod, setTimePeriod] = useState("3h")
+  const {setTimePeriod, timePeriod} = useGlobalState()
   const [likeCoin, setLikeCoin] = useState(false)
   const { uuid } = useParams();
 
@@ -40,26 +32,7 @@ const CryptoDetail = () => {
   } = useGetCryptoHistory({
     uuid, timePeriod
   });
-
-  const {coinPrice, coinTimestamp} = useManagedCryptoCharts({coinHistory, timePeriod})
-
   const detail =  data?.data?.coin
-
-  const dataCharts = {
-    labels: coinTimestamp,
-    datasets: [
-      {
-        label: `${detail?.name} price in USD`,
-        data: coinPrice,
-        fill: true,
-        backgroundColor: "rgba(16, 185, 129, 0.2)",
-        borderColor: "#10b981",
-        borderWidth: 2, 
-        tension: 0.4, 
-      },
-    ],
-  };
-
 
   if (isError || errorCoinHistory) return <Error />;
 
@@ -70,8 +43,9 @@ const CryptoDetail = () => {
   
   return (
   <WithMetaTag link={`https://fusioner.vercel.app/crypto/${uuid}`} title={`Fusioner: ${detail?.name} - ${detail?.description}`} desc={`Explore detailed insights on ${detail?.name} including its current price, market cap, trading volume, and historical performance. Stay updated with live price charts and take advantage of buying or selling options on Fusioner.`} keywords={`Fusioner, ${detail?.name}, ${detail?.symbol}, crypto price, cryptocurrency details, market cap, buy crypto, sell crypto, crypto charts, ${detail?.name} insights`}>
-      <div className="pt-[92px] px-2 sm:pt-24 container mx-auto grid gap-4 sm:gap-10 sm:px-3 pb-2 w-full grid-cols-1 lg:grid-cols-2">
+    <div className="pt-[92px] px-2 sm:pt-24 container mx-auto grid gap-4 sm:gap-10 min-h-screen sm:px-3 pb-2 w-full grid-cols-1 lg:grid-cols-2">
   {/* Coin Details Section */}
+
   <div className="flex flex-col px-3 py-4 rounded-lg gap-3 sm:gap-6">
     {/* Header with Icon and Name */}
     <div className="flex items-center gap-3">
@@ -145,39 +119,10 @@ const CryptoDetail = () => {
           <Loading width={50} height={50} />
         </div>
       ) : (
-        <Line 
-          data={{
-            ...dataCharts,
-            datasets: dataCharts.datasets.map(dataset => ({
-              ...dataset,
-              pointRadius: 0,
-            })),
-          }} 
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: {
-                display: false,
-                grid: {
-                  display: true,
-                },
-              },
-              y: {
-                grid: {
-                  display: false,
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                align: "center",
-              },
-            },
-          }} 
-        />
+        <LineCharts coinHistory={coinHistory} name={detail?.name} />
       )}
     </div>
+
     <div className="flex w-full pt-4 justify-between">
       <div className="flex gap-3">
         <button type="button" name={`Buy ${detail.name}`} className="px-8 py-2 text-white rounded-md hover:bg-green-600 bg-green-700">

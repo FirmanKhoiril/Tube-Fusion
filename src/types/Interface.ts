@@ -46,28 +46,55 @@ export type TFilterCardData = {
 }
 
 export interface ICardCrypto {
-    coin: {
-        ["24hVolume"]: number;
-        btcPrice: string;
-        change: string;
-        coinrankingUrl: string;
-        color: string;
-        contractAddresses: string[];
-        iconUrl: string;
-        listedAt: number;
-        lowVolume: boolean;
-        marketCap: number;
-        name: string;
-        price: number;
-        rank: number;
-        sparkline: string[];
-        symbol: string;
-        tier: number;
-        uuid: string;
-    }
+  coin: {
+    btcPrice: string;
+    change: string;
+    coinrankingUrl: string;
+    color: string;
+    contractAddresses: string[];
+    iconUrl: string;
+    listedAt: number;
+    lowVolume: boolean;
+    marketCap: number;
+    name: string;
+    price: number;
+    rank: number;
+    sparkline: string[];
+    symbol: string;
+    tier: number;
+    uuid: string;
+    ["24hVolume"]: number;
+  }
 }
 
 export type TChangeTimePeriodParams = {
   functionCTP: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string | null;
 };
+
+export type TLinks = {
+  name: string,
+  type: string,
+  url: string
+}
+
+type CoinHistoryData = {
+  change: string;
+  history: Array<PriceHistory>;
+}
+
+type PriceHistory = {
+  price: string;
+  timestamp: number;
+}
+
+type CoinHistoryResponse = {
+  status: string;
+  data: CoinHistoryData;
+}
+
+
+export type TLineCharts = {
+  name: string,
+  coinHistory: CoinHistoryResponse
+}
