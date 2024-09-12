@@ -19,21 +19,29 @@ const Card = ({ coin }: ICardCrypto) => {
         <p className="sm:inline-block hidden">
           #{coin.rank}
         </p>
-        <picture>
-          <source srcSet={`${coin.iconUrl}?format=avif`} type="image/avif" />
-          <source srcSet={`${coin.iconUrl}?format=webp`} type="image/webp" />
-          <LazyLoadImage 
-            alt={coin.name} 
-            src={coin.iconUrl} 
-            width={40} 
-            height={40} 
-            effect="blur"
-          />
-        </picture>
-        <div className="flex flex-col">
-          <h1 className="font-medium text-lg">{coin.name}</h1>
-          <span className="text-sm opacity-90">{coin.symbol}</span>
-        </div>
+      <div className="flex gap-4">
+        <picture className="pt-1.5">
+            <source srcSet={`${coin.iconUrl}?format=avif`} type="image/avif" />
+            <source srcSet={`${coin.iconUrl}?format=webp`} type="image/webp" />
+            <LazyLoadImage 
+              alt={coin.name} 
+              src={coin.iconUrl} 
+              width={38} 
+              height={38} 
+              effect="blur"
+              className="rounded-sm"
+              
+            />
+          </picture>
+          <div className="flex flex-col gap-1">
+            <h1 className="font-medium text-lg truncate max-w-[260px] sm:max-w-[500px]">
+              {coin.name}
+            </h1>
+            <span className="text-sm opacity-90 truncate max-w-[100px]">
+              {coin.symbol}
+            </span>
+          </div>
+      </div>
       </div>
       <div className="flex items-center gap-3 text-right">
         <div className="flex flex-col items-end">

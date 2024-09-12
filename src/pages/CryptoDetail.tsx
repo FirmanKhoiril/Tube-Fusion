@@ -58,7 +58,7 @@ const CryptoDetail = () => {
     </div>
 
     {/* Description */}
-    <p className="text-white/70">{detail.description}</p>
+    <p className="text-white/70 sm:text-base text-sm">{detail.description}</p>
 
     {/* Statistics Section */}
     <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white/80">
@@ -90,11 +90,11 @@ const CryptoDetail = () => {
 
     {/* Official Links Section */}
     <div>
-      <h1 className="font-bold tracking-wide pb-2 text-xl text-[#10b981]">Official Links</h1>
+      <h1 className="font-bold tracking-wide pb-2 text-xl">Official Links</h1>
       <div className="flex flex-wrap gap-6">
         {detail.links?.map((link: TLinks) => (
           <div className="flex flex-col gap-1" key={link.name}>
-            <p className="text-sm font-semibold text-white/80">{link.type}</p>
+            <p className="text-xs sm:text-sm font-semibold text-white/80">{link.type}</p>
             <a href={link.url} target="_blank" className="text-blue-400 font-semibold hover:underline" >
               {link.name}
             </a>

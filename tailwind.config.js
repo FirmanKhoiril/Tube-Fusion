@@ -21,7 +21,11 @@ export default {
       },
       screens: {
         xs: '550px'
+      },
+      fontSize: {
+        xs: '12px'
       }
+      
     },
   },
   plugins: [

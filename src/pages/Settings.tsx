@@ -41,7 +41,7 @@ const Settings = () => {
               Profile Settings
             </h2>
             <div className="space-y-4">
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between">
                 <label className="font-medium">Full Name:</label>
                 <input
                   type="text"
@@ -51,7 +51,7 @@ const Settings = () => {
                   placeholder="Enter your name"
                 />
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between">
                 <label className="font-medium">Email:</label>
                 <input
                   type="email"
