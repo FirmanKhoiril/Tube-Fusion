@@ -34,10 +34,10 @@ const Card = ({ coin }: ICardCrypto) => {
             />
           </picture>
           <div className="flex flex-col gap-1">
-            <h1 className="font-medium text-lg truncate max-w-[180px] sm:max-w-[500px]">
+            <h1 className="font-medium text-lg">
               {coin.name}
             </h1>
-            <span className="text-sm opacity-90 truncate max-w-[100px]">
+            <span className="text-sm opacity-90">
               {coin.symbol}
             </span>
           </div>
