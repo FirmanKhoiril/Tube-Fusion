@@ -6,12 +6,12 @@ Welcome to **Fusioner**! This project is designed to help users track and manage
 
 ## Table of Contents 📑
 - [About](#about-)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Features](#features-)
+- [Technologies Used](#technologies-used-)
+- [Installation](#installation-)
+- [Usage](#usage-)
+- [Contributing](#contributing-)
+- [License](#license-)
 
 ## About 📚
 
